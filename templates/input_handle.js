@@ -19,5 +19,8 @@ function readJSONFile(file) {
 window.onload = document.getElementById('submitURL').addEventListener('click', function() {
     var inputURL = document.getElementById('profilingURL').value;
     console.log(inputURL);
+    $.post('receiver', inputURL, function() {});
+    event.preventDefault();
+    // Use AJAX to send data to the server
     // alert(inputURL);
 });
