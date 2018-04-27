@@ -9,6 +9,15 @@
     Input Profiling URL:
     <input id="profilingURL" type="text">
     <button id="submitURL">Submit URL</button>
-    <script type="text/javascript" src="input_handle.js"></script>
+    <script>
+        window.onload = document.getElementById('submitURL').addEventListener('click', function() {
+        var inputURL = document.getElementById('profilingURL').value;
+        console.log(inputURL);
+        $.post('receiver', inputURL, function() {});
+        event.preventDefault();
+        // Use AJAX to send data to the server
+        // alert(inputURL);
+});
+    </script>
 </body>
 </html>

@@ -8,7 +8,7 @@ def hello_world():
     return render_template('index.html', name='joe')
 @app.route('/receiver', methods=['POST'])
 def worker():
-    return request
+    return request.get_data()
 
 
 if __name__ == '__main__':
