@@ -1880,9 +1880,49 @@ class Trace():
 ########################################################################################################################
 #   Main Entry Point
 ########################################################################################################################
+def analyzeTrace(input_site):
+    #_trace_file = '/Users/jnejati/PycharmProjects/wpt/traces/1_testbed01.trace' # uncompressed mutli imgs
+    # _site_name = input("Please input the domain you want to profile:") # This will finally become the entry point!
+    _site_name = input_site
+    _common_path = os.path.normpath(os.path.dirname(os.path.realpath(__file__)))
+    _common_path = ''.join([_common_path, '/desktop_livetest'])
+    # _common_path = os.path.join(_common_path, os.path.)
+    # _common_path = '/home/zhaoxin/workspace/YPTN/WProfX/desktop_livetest/'
+    _part = ['0_', _site_name, '.trace']
+    _specific_file_path =''.join(_part)
+    _abs_path_parts = [_common_path, '/', str(_site_name), '/run_0/trace/', _specific_file_path]
+    _abs_path = ''.join(_abs_path_parts)
+    # _abs_path = os.path.normpath(_abs_path) # Compatibility Purpose
+    # _trace_file = '/Users/jnejati/PycharmProjects/wpt/traces/1_testbed01_jsbig_uncompgood3g.trace'
+    # _trace_file = '/Users/jnejati/PycharmProjects/wpt/traces/1_testbed01_jsbig_compgood3g.trace'
+    # _trace_file = '/home/zhaoxin/workspace/YPTN/WProfX/desktop_livetest/www.yahoo.co.jp/run_0/trace/0_www.yahoo.co.jp.trace'
+    _abs_path = os.path.normpath(_abs_path) # Linux/MacOS/Win Compatibility Check
+    print(_abs_path)
+
+    trace = Trace(_abs_path)
+    _result, _start_ts, _cpu_times = trace.analyze()
+    """for t in trace.networks_list:
+        if 'dcmads.js' in t[1]['url']:
+        #if 'dcmads.js' in t:
+            print(t)
+    exit()"""
+    _output_file_name = ['0_', str(_site_name), '.json']
+    _output_file_name = ''.join(_output_file_name)
+    _output_common_path = ''.join([_common_path, '/../', 'graphs/'])
+    # _output_common_path = '/home/zhaoxin/workspace/YPTN/WProfX/graphs/'
+    _output_file_path = os.path.join(_output_common_path, _output_file_name)
+    _output_file_path = os.path.normpath(_output_file_path) # Linux/MacOS/Win Compatibility Check
+
+    # _output_file = '/home/zhaoxin/workspace/YPTN/WProfX/graphs/0_www.yahoo.co.jp.json'
+    trace.WriteJson(_output_file_path, _result)
+    _graph_output_name = ''.join([_site_name, '.html'])
+    trace.draw_waterfall(_output_file_path, _graph_output_name)
+
+
 def main():
     #_trace_file = '/Users/jnejati/PycharmProjects/wpt/traces/1_testbed01.trace' # uncompressed mutli imgs
     _site_name = input("Please input the domain you want to profile:") # This will finally become the entry point!
+    # _site_name = input_site
     _common_path = os.path.normpath(os.path.dirname(os.path.realpath(__file__)))
     _common_path = ''.join([_common_path, '/desktop_livetest'])
     # _common_path = os.path.join(_common_path, os.path.)
@@ -1921,5 +1961,6 @@ def main():
 if '__main__' == __name__:
     #  import cProfile
     #  cProfile.run('main()', None, 2)
-    main()
- # TODO Findout the exact process as how the webkit handle a webpage
+    # main()
+    test_site = "www.google.com"
+    analyzeTrace(test_site)

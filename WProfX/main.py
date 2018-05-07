@@ -28,8 +28,9 @@ def main():
     start = timeit.default_timer()
     input_file = 'live_test.txt'
     #base_dir = '/home/jnejati/PLTSpeed'
-    base_dir =  '/home/zhaoxin/workspace/YPTN/WProfX'
-    config_file = '/home/zhaoxin/workspace/YPTN/WProfX/confs/netProfiles_live.json'
+    base_dir =  os.path.normpath(os.path.dirname(os.path.realpath(__file__)))
+    # config_file = '/home/zhaoxin/workspace/YPTN_Profiling_Server/WProfX/confs/netProfiles_live.json'
+    config_file = ''.join([base_dir,'/confs/netProfiles_live.json'])
     repeat_no = 1
     #perf_args = '-etask-clock,context-switches,branches,branch-misses,cache-misses,cache-references,cycles:u,cycles:k,page-faults,sched:sched_switch,sched:sched_stat_runtime,sched:sched_wakeup,instructions:u,instructions:k,dTLB-load-misses,dTLB-loads,dTLB-store-misses,dTLB-stores,iTLB-load-misses,iTLB-loads,L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses,LLC-load-misses,LLC-loads,LLC-store-misses,LLC-stores'
     with open(config_file, 'r') as f:
@@ -89,6 +90,60 @@ def main():
                 time.sleep(5)
             #time.sleep(2)
     stop = timeit.default_timer()
-    logging.info(100*'-' + '\nTotal time: ' + str(stop -start)) 
+    logging.info(100*'-' + '\nTotal time: ' + str(stop -start))
+
+def traceWithInput(input_string):
+    start = timeit.default_timer()
+    base_dir =  os.path.normpath(os.path.dirname(os.path.realpath(__file__)))
+    # config_file = '/home/zhaoxin/workspace/YPTN_Profiling_Server/WProfX/confs/netProfiles_live.json'
+    config_file = ''.join([base_dir,'/confs/netProfiles_live.json'])
+    repeat_no = 1
+    with open(config_file, 'r') as f:
+        net_profile = json.load(f)[0]
+        _path = os.path.join(base_dir, net_profile['device_type'] + '_' + net_profile['name'])
+        webDnsSetup.clear_folder(_path)
+    _site = input_string # may run into encoding bullshit here
+    time.sleep(5) # WTF?
+    _site = _site.strip()
+    logging.info('Navigating to: ' + _site)
+    s1 = urlparse(_site)
+    _site_data_folder = os.path.join(_path, s1.netloc)
+    if not os.path.isdir(_site_data_folder):
+        os.mkdir(_site_data_folder)
+    for run_no in range(repeat_no):
+        _run_data_folder = os.path.join(_site_data_folder, 'run_' + str(run_no))
+        if not os.path.isdir(_run_data_folder):
+            os.mkdir(_run_data_folder)
+            # _subfolders = ['trace', 'screenshot', 'analysis', 'summary', 'tcpdump', 'perf']
+            _subfolders = ['trace', 'screenshot', 'analysis', 'summary']
+            for folder in _subfolders:
+                os.mkdir(os.path.join(_run_data_folder, folder))
+        logging.info('Current profile: ' + net_profile['device_type'] + ' - ' + net_profile['name'] + ' run_no: ' + str(run_no) + ' site: ' + _site)
+        _trace_folder = os.path.join(_run_data_folder, 'trace')
+        _screenshot_folder = os.path.join(_run_data_folder, 'screenshot')
+        _summary_folder = os.path.join(_run_data_folder, 'summary')
+        _trace_file = os.path.join(_trace_folder, str(run_no) + '_' + s1.netloc)
+        _screenshot_file = os.path.join(_screenshot_folder, str(run_no) + '_' + s1.netloc)
+        _summary_file = os.path.join(_summary_folder, str(run_no) + '_' + s1.netloc)
+        logging.info(_trace_file, _screenshot_file, _summary_file)
+        time.sleep(5)
+        try:
+            # _node_cmd = ['node', 'chrome_launcher.js', _site,  _trace_file, _summary_file, _screenshot_file, _tcpdump_pid]
+            _node_cmd = ['/home/zhaoxin/.nvm/versions/node/v8.9.4/bin/node',
+                         '/home/zhaoxin/workspace/YPTN/WProfX/chrome_launcher.js', _site, _trace_file, _summary_file,
+                         _screenshot_file]
+            # _cmd = _perf_cmd + _node_cmd
+            _cmd = _node_cmd
+            subprocess.call(_cmd, timeout=60)
+        except subprocess.TimeoutExpired:
+            print("Timeout:  ", _site, run_no)
+            with open(os.path.join(_site_data_folder, 'log.txt'), 'w+') as _log:
+                _log.write("Timed out:  " + _site + ' ' + str(run_no) + '\n')
+        time.sleep(5)
+        # time.sleep(2)
+    stop = timeit.default_timer()
+    logging.info(100 * '-' + '\nTotal time: ' + str(stop - start))
+
 if __name__ == '__main__':
-    main()
+    # main()
+    traceWithInput('https://www.baidu.com')
