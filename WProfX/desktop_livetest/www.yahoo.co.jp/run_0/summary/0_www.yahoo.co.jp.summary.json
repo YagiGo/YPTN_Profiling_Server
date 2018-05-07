@@ -1,0 +1,490 @@
+[
+  {
+    "TaskSchedulerRunTask": {
+      "sum": 2016.9470000002766,
+      "count": 571,
+      "min": 0,
+      "max": 816.2280000000028
+    }
+  },
+  {
+    "MessageLoop::RunTask": {
+      "sum": 1610.4979999980424,
+      "count": 7966,
+      "min": 0,
+      "max": 319.2509999999893
+    }
+  },
+  {
+    "TaskQueueManager::ProcessTaskFromWorkQueue": {
+      "sum": 694.6419999994687,
+      "count": 1655,
+      "min": 0,
+      "max": 56.585000000020955
+    }
+  },
+  {
+    "MessagePumpLibevent::OnLibeventNotification": {
+      "sum": 183.36600000027101,
+      "count": 2802,
+      "min": 0.0009999999892897904,
+      "max": 3.907999999995809
+    }
+  },
+  {
+    "Layout": {
+      "sum": 173.2290000000503,
+      "count": 40,
+      "min": 0.015000000013969839,
+      "max": 31.617000000027474
+    }
+  },
+  {
+    "TaskGraphRunner::RunTask": {
+      "sum": 172.2110000004759,
+      "count": 273,
+      "min": 0.001999999978579581,
+      "max": 9.924999999988358
+    }
+  },
+  {
+    "EvaluateScript": {
+      "sum": 129.6160000001546,
+      "count": 77,
+      "min": 0.03200000000651926,
+      "max": 14.869999999995343
+    }
+  },
+  {
+    "RasterTask": {
+      "sum": 123.79000000050291,
+      "count": 193,
+      "min": 0.008000000030733645,
+      "max": 7.151999999943655
+    }
+  },
+  {
+    "EventDispatch": {
+      "sum": 113.53300000005402,
+      "count": 176,
+      "min": 0.0009999999892897904,
+      "max": 50.460000000020955
+    }
+  },
+  {
+    "FunctionCall": {
+      "sum": 111.98400000022957,
+      "count": 88,
+      "min": 0.0040000000153668225,
+      "max": 44.65400000003865
+    }
+  },
+  {
+    "ParseHTML": {
+      "sum": 87.51800000021467,
+      "count": 66,
+      "min": 0.0020000000367872417,
+      "max": 11.331999999994878
+    }
+  },
+  {
+    "ImageDecodeTask": {
+      "sum": 55.08599999995204,
+      "count": 62,
+      "min": 0.010999999998603016,
+      "max": 9.916999999957625
+    }
+  },
+  {
+    "Decode LazyPixelRef": {
+      "sum": 52.660000000032596,
+      "count": 23,
+      "min": 0.0470000000204891,
+      "max": 9.775000000023283
+    }
+  },
+  {
+    "v8.compile": {
+      "sum": 33.88200000009965,
+      "count": 77,
+      "min": 0.010000000009313226,
+      "max": 3.0380000000004657
+    }
+  },
+  {
+    "UpdateLayoutTree": {
+      "sum": 31.85700000007637,
+      "count": 56,
+      "min": 0.005999999993946403,
+      "max": 5.701999999990221
+    }
+  },
+  {
+    "Decode Image": {
+      "sum": 23.13699999981327,
+      "count": 23,
+      "min": 0.022999999986495823,
+      "max": 2.8299999999580905
+    }
+  },
+  {
+    "Paint": {
+      "sum": 22.81099999998696,
+      "count": 54,
+      "min": 0.001999999978579581,
+      "max": 4.563000000023749
+    }
+  },
+  {
+    "v8.parseOnBackground": {
+      "sum": 22.590999999956694,
+      "count": 3,
+      "min": 5.293999999994412,
+      "max": 9.763999999966472
+    }
+  },
+  {
+    "UpdateLayer": {
+      "sum": 19.47899999987567,
+      "count": 309,
+      "min": 0,
+      "max": 1.9770000000135042
+    }
+  },
+  {
+    "SingleThreadTaskGraphRunner::RunTaskWithLockAcquired": {
+      "sum": 15.72000000096159,
+      "count": 519,
+      "min": 0,
+      "max": 1.2590000000200234
+    }
+  },
+  {
+    "CompositeLayers": {
+      "sum": 14.65099999983795,
+      "count": 114,
+      "min": 0.013999999966472387,
+      "max": 0.375
+    }
+  },
+  {
+    "UpdateLayerTree": {
+      "sum": 12.305999999982305,
+      "count": 49,
+      "min": 0.005999999993946403,
+      "max": 2.6340000000200234
+    }
+  },
+  {
+    "RunMicrotasks": {
+      "sum": 9.735000000044238,
+      "count": 12,
+      "min": 0.003000000026077032,
+      "max": 5.494999999995343
+    }
+  },
+  {
+    "TimerFire": {
+      "sum": 6.547000000020489,
+      "count": 48,
+      "min": 0.01999999996041879,
+      "max": 1.02800000004936
+    }
+  },
+  {
+    "MinorGC": {
+      "sum": 4.725000000034925,
+      "count": 6,
+      "min": 0.4220000000204891,
+      "max": 1.3479999999981374
+    }
+  },
+  {
+    "PlatformResourceSendRequest": {
+      "sum": 4.206999999878462,
+      "count": 74,
+      "min": 0.021000000007916242,
+      "max": 0.1959999999962747
+    }
+  },
+  {
+    "XHRLoad": {
+      "sum": 3.49900000001071,
+      "count": 1,
+      "min": 3.49900000001071,
+      "max": 3.49900000001071
+    }
+  },
+  {
+    "ChannelMojo::OnMessageReceived": {
+      "sum": 2.7449999995878898,
+      "count": 311,
+      "min": 0.0009999999892897904,
+      "max": 0.05599999998230487
+    }
+  },
+  {
+    "PaintImage": {
+      "sum": 1.7209999999613501,
+      "count": 124,
+      "min": 0.003999999957159162,
+      "max": 0.5190000000293367
+    }
+  },
+  {
+    "FeatureFirstUsed": {
+      "sum": 1.5289999999804422,
+      "count": 63,
+      "min": 0.001999999978579581,
+      "max": 0.8680000000167638
+    }
+  },
+  {
+    "BlinkGCMarking": {
+      "sum": 1.1179999999585561,
+      "count": 2,
+      "min": 0.5289999999804422,
+      "max": 0.5889999999781139
+    }
+  },
+  {
+    "ThreadState::performIdleLazySweep": {
+      "sum": 0.6979999999748543,
+      "count": 1,
+      "min": 0.6979999999748543,
+      "max": 0.6979999999748543
+    }
+  },
+  {
+    "CommitLoad": {
+      "sum": 0.42199999996228144,
+      "count": 4,
+      "min": 0.001999999978579581,
+      "max": 0.4110000000218861
+    }
+  },
+  {
+    "CSSFirstUsed": {
+      "sum": 0.37300000025425106,
+      "count": 102,
+      "min": 0.001999999978579581,
+      "max": 0.015000000013969839
+    }
+  },
+  {
+    "ThreadState::completeSweep": {
+      "sum": 0.26600000000325963,
+      "count": 1,
+      "min": 0.26600000000325963,
+      "max": 0.26600000000325963
+    }
+  },
+  {
+    "ParseAuthorStyleSheet": {
+      "sum": 0.23900000000139698,
+      "count": 1,
+      "min": 0.23900000000139698,
+      "max": 0.23900000000139698
+    }
+  },
+  {
+    "XHRReadyStateChange": {
+      "sum": 0.03600000002188608,
+      "count": 4,
+      "min": 0.0040000000153668225,
+      "max": 0.011999999987892807
+    }
+  },
+  {
+    "FireIdleCallback": {
+      "sum": 0.03599999996367842,
+      "count": 1,
+      "min": 0.03599999996367842,
+      "max": 0.03599999996367842
+    }
+  },
+  {
+    "GPUTask": {
+      "sum": 0.03499999997438863,
+      "count": 6,
+      "min": 0.0020000000367872417,
+      "max": 0.011999999987892807
+    }
+  },
+  {
+    "ResourceChangePriority": {
+      "sum": 0.03200000006472692,
+      "count": 7,
+      "min": 0.001999999978579581,
+      "max": 0.010000000009313226
+    }
+  },
+  {
+    "RequestMainThreadFrame": {
+      "sum": 0,
+      "count": 43,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "TimerInstall": {
+      "sum": 0,
+      "count": 6,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "NeedsBeginFrameChanged": {
+      "sum": 0,
+      "count": 77,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "Draw LazyPixelRef": {
+      "sum": 0,
+      "count": 115,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "BeginFrame": {
+      "sum": 0,
+      "count": 179,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "TracingStartedInPage": {
+      "sum": 0,
+      "count": 2,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "InvalidateLayout": {
+      "sum": 0,
+      "count": 40,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "ResourceFinish": {
+      "sum": 0,
+      "count": 76,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "UpdateCounters": {
+      "sum": 0,
+      "count": 160,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "DrawFrame": {
+      "sum": 0,
+      "count": 91,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "ActivateLayerTree": {
+      "sum": 0,
+      "count": 96,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "ResourceReceivedData": {
+      "sum": 0,
+      "count": 150,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "MarkDOMContent": {
+      "sum": 0,
+      "count": 11,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "MarkLoad": {
+      "sum": 0,
+      "count": 6,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "BeginMainThreadFrame": {
+      "sum": 0,
+      "count": 114,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "ScheduleStyleRecalculation": {
+      "sum": 0,
+      "count": 50,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "RequestIdleCallback": {
+      "sum": 0,
+      "count": 1,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "ResourceSendRequest": {
+      "sum": 0,
+      "count": 81,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "ResourceReceiveResponse": {
+      "sum": 0,
+      "count": 76,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "TracingStartedInBrowser": {
+      "sum": 0,
+      "count": 1,
+      "min": 0,
+      "max": 0
+    }
+  },
+  {
+    "SetLayerTreeId": {
+      "sum": 0,
+      "count": 3,
+      "min": 0,
+      "max": 0
+    }
+  }
+]

@@ -8,6 +8,9 @@ def hello_world():
     return render_template('index.html', name='joe')
 @app.route('/receiver', methods=['POST'])
 def worker():
+    print(request.get_data())
+    # Insert Profiling part here
+
     return request.get_data()
 
 
