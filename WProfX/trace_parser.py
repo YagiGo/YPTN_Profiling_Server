@@ -1915,7 +1915,9 @@ def analyzeTrace(input_site):
 
     # _output_file = '/home/zhaoxin/workspace/YPTN/WProfX/graphs/0_www.yahoo.co.jp.json'
     trace.WriteJson(_output_file_path, _result)
-    _graph_output_name = ''.join([_site_name, '.html'])
+    _graph_output_name = ''.join([os.path.normpath(os.path.dirname(os.path.realpath(__file__))), '/../' , 'templates/',
+                                  'profiled_result/',_site_name, '.html'])
+    print(_output_file_path)
     trace.draw_waterfall(_output_file_path, _graph_output_name)
 
 
@@ -1954,7 +1956,9 @@ def main():
 
     # _output_file = '/home/zhaoxin/workspace/YPTN/WProfX/graphs/0_www.yahoo.co.jp.json'
     trace.WriteJson(_output_file_path, _result)
-    _graph_output_name = ''.join([_site_name, '.html'])
+    _graph_output_name = ''.join([os.path.normpath(os.path.dirname(os.path.realpath(__file__))), '/../' , 'templates/',
+                                  'profiled_result/',_site_name, '.html'])
+    print(_graph_output_name)
     trace.draw_waterfall(_output_file_path, _graph_output_name)
 
 

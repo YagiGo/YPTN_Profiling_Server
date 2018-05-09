@@ -6,18 +6,41 @@
     <title>Profiling Test</title>
 </head>
 <body>
+    <p> A Test Page for Web Profiling Model, input the url with protocol</p>
+    <p>Example: https://www.google.com / http://www.somesitewithoutsecurityscense.com</p>
     Input Profiling URL:
     <input id="profilingURL" type="text">
-    <button id="submitURL">Submit URL</button>
+    <button id="submitURL" >Submit URL</button>
+    <p id="inProgress">Processing...Please Wait</p>
+    <p id="finished">Process finished, click button below to show the result. </p>
+    <a href="profiled_result" id="afterFinishing" target="_blank"><button id="showGraph">Show Result</button></a>
     <script>
+        // Init
+        $(document).ready(function() {
+            $("#afterFinishing").hide();
+            $("#inProgress").hide();
+            $("#finished").hide();
+        });
         window.onload = document.getElementById('submitURL').addEventListener('click', function() {
-        var inputURL = document.getElementById('profilingURL').value;
-        console.log(inputURL);
-        $.post('receiver', inputURL, function() {});
-        event.preventDefault();
-        // Use AJAX to send data to the server
-        // alert(inputURL);
-});
+            var inputURL = document.getElementById('profilingURL').value;
+            // console.log(inputURL);
+            $("#inProgress").show();
+            $.post('/receiver', inputURL, function (data) {
+                if(data.status === 200) {
+                    $("#inProgress").hide();
+                    $("#finished").show();
+                    $("#afterFinishing").show();
+                }
+            });
+            // Use AJAX to send data to the server
+            // alert(inputURL);
+        });
+        window.onload = document.getElementById('showGraph').addEventListener('click', function() {
+            //var inputURL = document.getElementById('profilingURL').value;
+            //$.post('profiled_result', inputURL, function() {});
+            //event.preventDefault();
+            //$.get('profiled_result');
+        });
     </script>
 </body>
 </html>

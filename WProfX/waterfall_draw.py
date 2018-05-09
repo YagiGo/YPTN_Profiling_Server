@@ -290,7 +290,8 @@ class DrawWaterfall():
 
 
     def showPlot(self):
-        show(self.p)
+        # show(self.p)
+        pass
 
     def draw_from_dict(self, y_order_url_lookup, data):
         for obj in data:

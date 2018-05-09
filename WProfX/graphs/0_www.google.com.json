@@ -3,437 +3,421 @@
         "id": "https://www.google.com/",
         "objs": [
             {
-                "id": "3327.1",
-                "fromScript": "Null",
                 "mimeType": "text/html",
-                "statusCode": 200,
-                "responseReceivedTime": 1.858,
-                "endTime": 96.428,
-                "transferSize": 596,
-                "activityId": "Networking_0",
+                "responseReceivedTime": 1.398,
+                "fromScript": "Null",
+                "transferSize": 48470,
+                "endTime": 51.163,
+                "id": "B20C9FE155A3203FEC573B98037EE5F8",
                 "startTime": 0.0,
-                "url": "https://www.google.com/"
-            },
-            {
-                "startTime": 24.947,
                 "url": "https://www.google.com/",
-                "endTime": 31.244,
-                "activityId": "Scripting_0"
+                "activityId": "Networking_0",
+                "statusCode": 200
             },
             {
-                "startTime": 38.338,
                 "url": "https://www.google.com/",
-                "endTime": 42.655,
-                "activityId": "Scripting_1"
+                "activityId": "Scripting_0",
+                "startTime": 68.481,
+                "endTime": 85.917
             },
             {
-                "startTime": 43.303,
                 "url": "https://www.google.com/",
-                "endTime": 44.557,
-                "activityId": "Scripting_2"
+                "activityId": "Scripting_1",
+                "startTime": 104.182,
+                "endTime": 105.612
             },
             {
-                "startTime": 58.954,
                 "url": "https://www.google.com/",
-                "endTime": 59.104,
-                "activityId": "Scripting_3"
+                "activityId": "Scripting_2",
+                "startTime": 135.82,
+                "endTime": 136.756
             },
             {
-                "startTime": 59.667,
                 "url": "https://www.google.com/",
-                "endTime": 60.24,
-                "activityId": "Scripting_4"
+                "activityId": "Scripting_3",
+                "startTime": 137.014,
+                "endTime": 139.027
             },
             {
-                "startTime": 71.954,
                 "url": "https://www.google.com/",
-                "endTime": 94.966,
-                "activityId": "Scripting_5"
+                "activityId": "Scripting_4",
+                "startTime": 139.194,
+                "endTime": 142.873
             },
             {
-                "startTime": 103.835,
                 "url": "https://www.google.com/",
-                "endTime": 103.941,
-                "activityId": "Scripting_6"
+                "activityId": "Scripting_5",
+                "startTime": 143.565,
+                "endTime": 170.088
             },
             {
-                "startTime": 103.975,
                 "url": "https://www.google.com/",
-                "endTime": 104.05,
-                "activityId": "Scripting_7"
+                "activityId": "Scripting_6",
+                "startTime": 177.065,
+                "endTime": 177.436
             },
             {
-                "startTime": 104.083,
                 "url": "https://www.google.com/",
-                "endTime": 105.116,
-                "activityId": "Scripting_8"
+                "activityId": "Scripting_7",
+                "startTime": 177.603,
+                "endTime": 178.017
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
+                "startTime": 56.402,
                 "fromScript": null,
                 "activityId": "Loading_0",
-                "startTime": 24.511,
                 "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 31.301
+                "endTime": 88.152
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
+                "startTime": 104.087,
                 "fromScript": null,
                 "activityId": "Loading_1",
-                "startTime": 33.429,
                 "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 36.211
+                "endTime": 111.177
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
+                "startTime": 135.696,
                 "fromScript": null,
                 "activityId": "Loading_2",
-                "startTime": 38.269,
                 "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 45.253
+                "endTime": 171.497
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
+                "startTime": 176.92,
                 "fromScript": null,
                 "activityId": "Loading_3",
-                "startTime": 57.91,
                 "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 58.202
+                "endTime": 180.397
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
-                "fromScript": null,
+                "startTime": 805.38,
+                "fromScript": "https://www.google.com/",
                 "activityId": "Loading_4",
-                "startTime": 58.903,
                 "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 59.371
+                "endTime": 805.906
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
-                "fromScript": null,
+                "startTime": 805.973,
+                "fromScript": "https://www.google.com/",
                 "activityId": "Loading_5",
-                "startTime": 59.642,
                 "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 60.3
+                "endTime": 805.981
+            }
+        ]
+    },
+    {
+        "id": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png",
+        "objs": [
+            {
+                "mimeType": "image/png",
+                "responseReceivedTime": 508.724,
+                "fromScript": "Null",
+                "transferSize": 7048,
+                "endTime": 529.425,
+                "id": "27248.38",
+                "startTime": 57.145,
+                "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png",
+                "activityId": "Networking_1",
+                "statusCode": 200
+            }
+        ]
+    },
+    {
+        "id": "https://ssl.gstatic.com/gb/images/qi2_00ed8ca1.png",
+        "objs": [
+            {
+                "mimeType": "image/png",
+                "responseReceivedTime": 174.343,
+                "fromScript": "Null",
+                "transferSize": 3301,
+                "endTime": 175.121,
+                "id": "27248.40",
+                "startTime": 116.644,
+                "url": "https://ssl.gstatic.com/gb/images/qi2_00ed8ca1.png",
+                "activityId": "Networking_2",
+                "statusCode": 200
+            }
+        ]
+    },
+    {
+        "id": "https://www.gstatic.com/og/_/js/k=og.mob.en_US.cy9xprFYr9w.O/rt=j/m=md/exm=mih,mab,meb/d=1/ed=1/rs=AA2YrTumBbQLXuxporJscGGub1GvWDBBwQ",
+        "objs": [
+            {
+                "mimeType": "text/javascript",
+                "responseReceivedTime": 194.175,
+                "fromScript": "https://www.google.com/",
+                "transferSize": 29174,
+                "endTime": 198.125,
+                "id": "27248.41",
+                "startTime": 169.296,
+                "url": "https://www.gstatic.com/og/_/js/k=og.mob.en_US.cy9xprFYr9w.O/rt=j/m=md/exm=mih,mab,meb/d=1/ed=1/rs=AA2YrTumBbQLXuxporJscGGub1GvWDBBwQ",
+                "activityId": "Networking_3",
+                "statusCode": 200
             },
             {
+                "url": "https://www.gstatic.com/og/_/js/k=og.mob.en_US.cy9xprFYr9w.O/rt=j/m=md/exm=mih,mab,meb/d=1/ed=1/rs=AA2YrTumBbQLXuxporJscGGub1GvWDBBwQ",
+                "activityId": "Scripting_8",
+                "startTime": 219.271,
+                "endTime": 223.879
+            }
+        ]
+    },
+    {
+        "id": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.LmS0rYwKxdo.O/m=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/rs=ACT90oFlacYlKXslNmInOUN1tWjSLiy8sA",
+        "objs": [
+            {
+                "mimeType": "text/javascript",
+                "responseReceivedTime": 526.982,
+                "fromScript": "https://www.google.com/",
+                "transferSize": 24633,
+                "endTime": 578.863,
+                "id": "27248.42",
+                "startTime": 181.315,
+                "url": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.LmS0rYwKxdo.O/m=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/rs=ACT90oFlacYlKXslNmInOUN1tWjSLiy8sA",
+                "activityId": "Networking_4",
+                "statusCode": 200
+            },
+            {
+                "url": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.LmS0rYwKxdo.O/m=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/rs=ACT90oFlacYlKXslNmInOUN1tWjSLiy8sA",
+                "activityId": "Scripting_9",
+                "startTime": 645.09,
+                "endTime": 771.587
+            }
+        ]
+    },
+    {
+        "id": "https://www.google.com/gen_204?s=webaft&atyp=csi&ei=yDvxWsXuFcqj8AWh-ZWABQ&rt=wsrt.294,aft.456,prt.63",
+        "objs": [
+            {
+                "mimeType": "text/html",
+                "responseReceivedTime": 1141.971,
+                "fromScript": "https://www.google.com/",
+                "endTime": 1144.166,
+                "id": "27248.43",
+                "startTime": 537.038,
+                "url": "https://www.google.com/gen_204?s=webaft&atyp=csi&ei=yDvxWsXuFcqj8AWh-ZWABQ&rt=wsrt.294,aft.456,prt.63",
+                "activityId": "Networking_5",
+                "statusCode": 204
+            }
+        ]
+    },
+    {
+        "id": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.dccAEsz2frM.O/m=sb_wiz,aa,abd,async,dvl,foot,ipv6,mu,sonic,d3l,udlg,rQSi2,iP7ptb,if1iFc,yQ43ff,ws9Tlc,uz938c,xpltpb,Fkg7bd,vWNDde,kopZwe,czrJpf,WgDvvc,QfiAub,wI7Sfc,HcFEGb,L1AAkb,xPR7tc,y8zIvc,opNw3,Uox2uf,dtPt4d,CiVnBc/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/exm=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi/ed=1/rs=ACT90oFUl9WuQDDDtToqamEzifipa7XkGA?xjs=s1",
+        "objs": [
+            {
+                "mimeType": "text/javascript",
+                "responseReceivedTime": 1256.327,
+                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.LmS0rYwKxdo.O/m=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/rs=ACT90oFlacYlKXslNmInOUN1tWjSLiy8sA",
+                "transferSize": 25037,
+                "endTime": 1345.685,
+                "id": "27248.44",
+                "startTime": 798.786,
+                "url": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.dccAEsz2frM.O/m=sb_wiz,aa,abd,async,dvl,foot,ipv6,mu,sonic,d3l,udlg,rQSi2,iP7ptb,if1iFc,yQ43ff,ws9Tlc,uz938c,xpltpb,Fkg7bd,vWNDde,kopZwe,czrJpf,WgDvvc,QfiAub,wI7Sfc,HcFEGb,L1AAkb,xPR7tc,y8zIvc,opNw3,Uox2uf,dtPt4d,CiVnBc/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/exm=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi/ed=1/rs=ACT90oFUl9WuQDDDtToqamEzifipa7XkGA?xjs=s1",
+                "activityId": "Networking_6",
+                "statusCode": 200
+            },
+            {
+                "url": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.dccAEsz2frM.O/m=sb_wiz,aa,abd,async,dvl,foot,ipv6,mu,sonic,d3l,udlg,rQSi2,iP7ptb,if1iFc,yQ43ff,ws9Tlc,uz938c,xpltpb,Fkg7bd,vWNDde,kopZwe,czrJpf,WgDvvc,QfiAub,wI7Sfc,HcFEGb,L1AAkb,xPR7tc,y8zIvc,opNw3,Uox2uf,dtPt4d,CiVnBc/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/exm=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi/ed=1/rs=ACT90oFUl9WuQDDDtToqamEzifipa7XkGA?xjs=s1",
+                "activityId": "Scripting_10",
+                "startTime": 1379.208,
+                "endTime": 1458.498
+            }
+        ]
+    },
+    {
+        "id": "https://www.gstatic.com/navigationdrawer/home_icon.svg",
+        "objs": [
+            {
+                "mimeType": "image/svg+xml",
+                "responseReceivedTime": 1322.475,
+                "fromScript": "Null",
+                "transferSize": 232,
+                "endTime": 1323.715,
+                "id": "27248.45",
+                "startTime": 807.372,
+                "url": "https://www.gstatic.com/navigationdrawer/home_icon.svg",
+                "activityId": "Networking_7",
+                "statusCode": 200
+            }
+        ]
+    },
+    {
+        "id": "https://www.gstatic.com/navigationdrawer/save_icon.svg",
+        "objs": [
+            {
+                "mimeType": "image/svg+xml",
+                "responseReceivedTime": 1285.604,
+                "fromScript": "Null",
+                "transferSize": 1016,
+                "endTime": 1290.265,
+                "id": "27248.46",
+                "startTime": 807.867,
+                "url": "https://www.gstatic.com/navigationdrawer/save_icon.svg",
+                "activityId": "Networking_8",
+                "statusCode": 200
+            }
+        ]
+    },
+    {
+        "id": "https://www.gstatic.com/navigationdrawer/settings_icon.svg",
+        "objs": [
+            {
+                "mimeType": "image/svg+xml",
+                "responseReceivedTime": 1332.725,
+                "fromScript": "Null",
+                "transferSize": 869,
+                "endTime": 1333.921,
+                "id": "27248.47",
+                "startTime": 808.22,
+                "url": "https://www.gstatic.com/navigationdrawer/settings_icon.svg",
+                "activityId": "Networking_9",
+                "statusCode": 200
+            }
+        ]
+    },
+    {
+        "id": "https://www.gstatic.com/navigationdrawer/help_icon.svg",
+        "objs": [
+            {
+                "mimeType": "image/svg+xml",
+                "responseReceivedTime": 1300.216,
+                "fromScript": "Null",
+                "transferSize": 465,
+                "endTime": 1301.418,
+                "id": "27248.48",
+                "startTime": 808.535,
+                "url": "https://www.gstatic.com/navigationdrawer/help_icon.svg",
+                "activityId": "Networking_10",
+                "statusCode": 200
+            }
+        ]
+    },
+    {
+        "id": "https://www.gstatic.com/navigationdrawer/feedback_icon.svg",
+        "objs": [
+            {
+                "mimeType": "image/svg+xml",
+                "responseReceivedTime": 1312.092,
+                "fromScript": "Null",
+                "transferSize": 273,
+                "endTime": 1313.465,
+                "id": "27248.49",
+                "startTime": 808.825,
+                "url": "https://www.gstatic.com/navigationdrawer/feedback_icon.svg",
+                "activityId": "Networking_11",
+                "statusCode": 200
+            }
+        ]
+    },
+    {
+        "id": "",
+        "objs": [
+            {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
+                "startTime": 1291.567,
                 "fromScript": null,
                 "activityId": "Loading_6",
-                "startTime": 68.498,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 68.522
+                "url": "",
+                "endTime": 1291.652
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
+                "startTime": 1302.584,
                 "fromScript": null,
                 "activityId": "Loading_7",
-                "startTime": 71.511,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 96.237
+                "url": "",
+                "endTime": 1302.679
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
+                "startTime": 1314.444,
                 "fromScript": null,
                 "activityId": "Loading_8",
-                "startTime": 103.789,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 105.152
+                "url": "",
+                "endTime": 1314.519
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
+                "startTime": 1324.949,
                 "fromScript": null,
                 "activityId": "Loading_9",
-                "startTime": 105.593,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 109.117
+                "url": "",
+                "endTime": 1325.162
             },
             {
+                "styleSheetUrl": null,
                 "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
+                "startTime": 1335.21,
+                "fromScript": null,
                 "activityId": "Loading_10",
-                "startTime": 225.564,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.567
+                "url": "",
+                "endTime": 1335.273
+            }
+        ]
+    },
+    {
+        "id": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.dccAEsz2frM.O/m=RMhBfe/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/exm=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi,sb_wiz,aa,abd,async,dvl,foot,ipv6,mu,sonic,d3l,udlg,rQSi2,iP7ptb,if1iFc,yQ43ff,ws9Tlc,uz938c,xpltpb,Fkg7bd,vWNDde,kopZwe,czrJpf,WgDvvc,QfiAub,wI7Sfc,HcFEGb,L1AAkb,xPR7tc,y8zIvc,opNw3,Uox2uf,dtPt4d,CiVnBc/ed=1/rs=ACT90oFUl9WuQDDDtToqamEzifipa7XkGA",
+        "objs": [
+            {
+                "mimeType": "text/javascript",
+                "responseReceivedTime": 1768.37,
+                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.LmS0rYwKxdo.O/m=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/rs=ACT90oFlacYlKXslNmInOUN1tWjSLiy8sA",
+                "transferSize": 4195,
+                "endTime": 1772.733,
+                "id": "27248.50",
+                "startTime": 1426.068,
+                "url": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.dccAEsz2frM.O/m=RMhBfe/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/exm=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi,sb_wiz,aa,abd,async,dvl,foot,ipv6,mu,sonic,d3l,udlg,rQSi2,iP7ptb,if1iFc,yQ43ff,ws9Tlc,uz938c,xpltpb,Fkg7bd,vWNDde,kopZwe,czrJpf,WgDvvc,QfiAub,wI7Sfc,HcFEGb,L1AAkb,xPR7tc,y8zIvc,opNw3,Uox2uf,dtPt4d,CiVnBc/ed=1/rs=ACT90oFUl9WuQDDDtToqamEzifipa7XkGA",
+                "activityId": "Networking_12",
+                "statusCode": 200
             },
             {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
+                "url": "https://www.google.com/xjs/_/js/k=xjs.qs.zh_CN.dccAEsz2frM.O/m=RMhBfe/am=gEXMy3gPOQQZG7GQDEZfgAJOBAQ/rt=j/d=1/exm=sx,bct,cdos,elog,hsm,jsa,qim,r,d,csi,sb_wiz,aa,abd,async,dvl,foot,ipv6,mu,sonic,d3l,udlg,rQSi2,iP7ptb,if1iFc,yQ43ff,ws9Tlc,uz938c,xpltpb,Fkg7bd,vWNDde,kopZwe,czrJpf,WgDvvc,QfiAub,wI7Sfc,HcFEGb,L1AAkb,xPR7tc,y8zIvc,opNw3,Uox2uf,dtPt4d,CiVnBc/ed=1/rs=ACT90oFUl9WuQDDDtToqamEzifipa7XkGA",
+                "activityId": "Scripting_11",
+                "startTime": 1775.014,
+                "endTime": 1803.748
+            }
+        ]
+    },
+    {
+        "id": "https://www.gstatic.com/og/_/ss/k=og.mob.1vptb1uyev7t4.L.W.O/m=md/excm=mih,mab,meb/d=1/ed=1/rs=AA2YrTsUKNx3Q4RQIM-IQz0NouGiYbuLcA",
+        "objs": [
+            {
+                "mimeType": "text/css",
+                "responseReceivedTime": 1862.521,
+                "fromScript": "https://www.google.com/",
+                "transferSize": 13601,
+                "endTime": 1865.205,
+                "id": "27248.53",
+                "startTime": 1824.776,
+                "url": "https://www.gstatic.com/og/_/ss/k=og.mob.1vptb1uyev7t4.L.W.O/m=md/excm=mih,mab,meb/d=1/ed=1/rs=AA2YrTsUKNx3Q4RQIM-IQz0NouGiYbuLcA",
+                "activityId": "Networking_13",
+                "statusCode": 200
+            },
+            {
+                "styleSheetUrl": "https://www.gstatic.com/og/_/ss/k=og.mob.1vptb1uyev7t4.L.W.O/m=md/excm=mih,mab,meb/d=1/ed=1/rs=AA2YrTsUKNx3Q4RQIM-IQz0NouGiYbuLcA",
+                "name": "ParseAuthorStyleSheet",
+                "startTime": 1865.292,
+                "fromScript": null,
                 "activityId": "Loading_11",
-                "startTime": 225.58,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.584
-            },
-            {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "activityId": "Loading_12",
-                "startTime": 225.607,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.609
-            },
-            {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "activityId": "Loading_13",
-                "startTime": 225.616,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.618
-            },
-            {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "activityId": "Loading_14",
-                "startTime": 225.644,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.647
-            },
-            {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "activityId": "Loading_15",
-                "startTime": 225.654,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.656
-            },
-            {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "activityId": "Loading_16",
-                "startTime": 225.688,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.69
-            },
-            {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "activityId": "Loading_17",
-                "startTime": 225.697,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.699
-            },
-            {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "activityId": "Loading_18",
-                "startTime": 225.713,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.716
-            },
-            {
-                "name": "ParseHTML",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "activityId": "Loading_19",
-                "startTime": 225.723,
-                "url": "https://www.google.com/",
-                "styleSheetUrl": null,
-                "endTime": 225.725
-            }
-        ]
-    },
-    {
-        "id": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png",
-        "objs": [
-            {
-                "id": "3327.2",
-                "fromScript": "Null",
-                "mimeType": "image/png",
-                "statusCode": 200,
-                "responseReceivedTime": 211.814,
-                "endTime": 211.948,
-                "transferSize": 5087,
-                "activityId": "Networking_1",
-                "startTime": 36.623,
-                "url": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png"
-            }
-        ]
-    },
-    {
-        "id": "https://ssl.gstatic.com/gb/images/i1_1967ca6a.png",
-        "objs": [
-            {
-                "id": "3327.4",
-                "fromScript": "Null",
-                "mimeType": "image/png",
-                "statusCode": 200,
-                "responseReceivedTime": 57.532,
-                "endTime": 57.725,
-                "transferSize": 7325,
-                "activityId": "Networking_2",
-                "startTime": 46.416,
-                "url": "https://ssl.gstatic.com/gb/images/i1_1967ca6a.png"
-            }
-        ]
-    },
-    {
-        "id": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-        "objs": [
-            {
-                "id": "3327.5",
-                "fromScript": "Null",
-                "mimeType": "image/png",
-                "statusCode": 200,
-                "responseReceivedTime": 179.776,
-                "endTime": 180.136,
-                "transferSize": 5969,
-                "activityId": "Networking_3",
-                "startTime": 56.876,
-                "url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-            }
-        ]
-    },
-    {
-        "id": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-        "objs": [
-            {
-                "id": "3327.8",
-                "fromScript": "https://www.google.com/",
-                "mimeType": "text/javascript",
-                "statusCode": 200,
-                "responseReceivedTime": 146.731,
-                "endTime": 168.906,
-                "transferSize": 5632,
-                "activityId": "Networking_4",
-                "startTime": 61.476,
-                "url": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ"
-            },
-            {
-                "startTime": 182.667,
-                "url": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "endTime": 211.527,
-                "activityId": "Scripting_9"
-            }
-        ]
-    },
-    {
-        "id": "https://www.google.com/gen_204?s=webaft&atyp=csi&ei=FVrhWu-kC42A8QXX66CAAg&rt=wsrt.150,aft.152,prt.76",
-        "objs": [
-            {
-                "id": "3327.9",
-                "fromScript": "https://www.google.com/",
-                "mimeType": "text/html",
-                "statusCode": 204,
-                "responseReceivedTime": 232.69,
-                "endTime": 232.743,
-                "activityId": "Networking_5",
-                "startTime": 181.11,
-                "url": "https://www.google.com/gen_204?s=webaft&atyp=csi&ei=FVrhWu-kC42A8QXX66CAAg&rt=wsrt.150,aft.152,prt.76"
-            }
-        ]
-    },
-    {
-        "id": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.JwPGCpqJFY0.O/m=aa,abd,async,dvl,foot,fpe,ipv6,lu,m,mu,sf,sonic,spch,d3l,udlg,WgDvvc/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/exm=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/ed=1/rs=ACT90oHeE0UQnIG01GF4SuYc95BMS1fG-g?xjs=s1",
-        "objs": [
-            {
-                "id": "3327.10",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "mimeType": "text/javascript",
-                "statusCode": 200,
-                "responseReceivedTime": 231.232,
-                "endTime": 231.679,
-                "transferSize": 46019,
-                "activityId": "Networking_6",
-                "startTime": 216.917,
-                "url": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.JwPGCpqJFY0.O/m=aa,abd,async,dvl,foot,fpe,ipv6,lu,m,mu,sf,sonic,spch,d3l,udlg,WgDvvc/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/exm=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/ed=1/rs=ACT90oHeE0UQnIG01GF4SuYc95BMS1fG-g?xjs=s1"
-            },
-            {
-                "startTime": 236.223,
-                "url": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.JwPGCpqJFY0.O/m=aa,abd,async,dvl,foot,fpe,ipv6,lu,m,mu,sf,sonic,spch,d3l,udlg,WgDvvc/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/exm=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/ed=1/rs=ACT90oHeE0UQnIG01GF4SuYc95BMS1fG-g?xjs=s1",
-                "endTime": 246.074,
-                "activityId": "Scripting_10"
-            }
-        ]
-    },
-    {
-        "id": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACrElEQVR42u2Xz2sTQRSAX8VSb1K8iNqKooJH2Ux6Ksn+iPQqxZMIehJB0do/IMhmQWsvHr2KSEGk0tSLIoWIYNUKij20F2/N7iaUZnYT0kYzzhMKs0HDJiTdLcwHDwKZSd63781LBiQSSW9JZdkhzfKm1Rz9mjZp/W9YdEU3vXv4HsQZ40FtNG36q5rls//Ej4tmbSS2T15Mvp3ExOPmEMQNbBtMMEyoljcFcQN7PqyAlqNfIG7gYQ0tYNIaxA1MrJPY3wImbUqBKAXSFv0tBSIVMOkvKRDtGKWN/T6FdqRAxFNoWwpEPIXqUqBT6ALU/UVgu8GW4GD3f6f9TRDYNJTDrk7YbtiqUumHwIYoUJuHERDAS0r4CvgFECgbY+cFAR7KT+g1POmCKFDNw6WggHc3fBtVb4CAoyauBgXIG+g1Xh5mRAGah6cggBd11fK/h7lOprIs0H6uRl6KAo5O7kOv4QmPiwJ4Jqqv4FiwCtXjvD2+tRmfK6kZ/ygI2HritK0rDVGgrClJ6DWMwYC/AGuCBMYcIC2V0CzvjmbRz3j3xUjn6CfeYreUJ2wQkGD75INPX1mFfsEFrrcIYCvdhC4paWQakxajpJMr0C9YFg54i7AsClRmh9/xnr0NHcInzZStk2aLwAcGMAD9pPIazvFKVDD5rdnhJeHLX5RTyRPQHpz5o66emMc9wdlPtvA8wF7Aq2BUHh1525qEo5JtR1WeOXpickO9cJIpyuD6xJmhYiZ5ytWSl3mlnuOaf+2zDaLDXmJrSgZ/MYVEugo+gSh+FkSBa4yd5Ul87DZ5XpFl/AyIEjzYjkau8WqshU2cr13HPbgX4gJOD97n465GZlyVvC9mSKloKI2iTnbwNT+gBX54H+IaXAtxJzE3ycSAFqSAFJACUkAikXD+AHj5/wx2o5osAAAAAElFTkSuQmCC",
-        "objs": [
-            {
-                "id": "3327.11",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "mimeType": "image/png",
-                "statusCode": 200,
-                "responseReceivedTime": 224.337,
-                "endTime": 224.352,
-                "transferSize": 741,
-                "activityId": "Networking_7",
-                "startTime": 224.311,
-                "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACrElEQVR42u2Xz2sTQRSAX8VSb1K8iNqKooJH2Ux6Ksn+iPQqxZMIehJB0do/IMhmQWsvHr2KSEGk0tSLIoWIYNUKij20F2/N7iaUZnYT0kYzzhMKs0HDJiTdLcwHDwKZSd63781LBiQSSW9JZdkhzfKm1Rz9mjZp/W9YdEU3vXv4HsQZ40FtNG36q5rls//Ej4tmbSS2T15Mvp3ExOPmEMQNbBtMMEyoljcFcQN7PqyAlqNfIG7gYQ0tYNIaxA1MrJPY3wImbUqBKAXSFv0tBSIVMOkvKRDtGKWN/T6FdqRAxFNoWwpEPIXqUqBT6ALU/UVgu8GW4GD3f6f9TRDYNJTDrk7YbtiqUumHwIYoUJuHERDAS0r4CvgFECgbY+cFAR7KT+g1POmCKFDNw6WggHc3fBtVb4CAoyauBgXIG+g1Xh5mRAGah6cggBd11fK/h7lOprIs0H6uRl6KAo5O7kOv4QmPiwJ4Jqqv4FiwCtXjvD2+tRmfK6kZ/ygI2HritK0rDVGgrClJ6DWMwYC/AGuCBMYcIC2V0CzvjmbRz3j3xUjn6CfeYreUJ2wQkGD75INPX1mFfsEFrrcIYCvdhC4paWQakxajpJMr0C9YFg54i7AsClRmh9/xnr0NHcInzZStk2aLwAcGMAD9pPIazvFKVDD5rdnhJeHLX5RTyRPQHpz5o66emMc9wdlPtvA8wF7Aq2BUHh1525qEo5JtR1WeOXpickO9cJIpyuD6xJmhYiZ5ytWSl3mlnuOaf+2zDaLDXmJrSgZ/MYVEugo+gSh+FkSBa4yd5Ul87DZ5XpFl/AyIEjzYjkau8WqshU2cr13HPbgX4gJOD97n465GZlyVvC9mSKloKI2iTnbwNT+gBX54H+IaXAtxJzE3ycSAFqSAFJACUkAikXD+AHj5/wx2o5osAAAAAElFTkSuQmCC"
-            }
-        ]
-    },
-    {
-        "id": "data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw%3D%3D",
-        "objs": [
-            {
-                "id": "3327.13",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "mimeType": "image/gif",
-                "statusCode": 200,
-                "responseReceivedTime": 227.516,
-                "endTime": 227.529,
-                "transferSize": 43,
-                "activityId": "Networking_8",
-                "startTime": 227.491,
-                "url": "data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw%3D%3D"
-            }
-        ]
-    },
-    {
-        "id": "https://www.google.com/textinputassistant/tia.png",
-        "objs": [
-            {
-                "id": "3327.15",
-                "fromScript": "Null",
-                "mimeType": "image/png",
-                "statusCode": 200,
-                "responseReceivedTime": 247.238,
-                "endTime": 247.376,
-                "transferSize": 258,
-                "activityId": "Networking_9",
-                "startTime": 230.002,
-                "url": "https://www.google.com/textinputassistant/tia.png"
-            }
-        ]
-    },
-    {
-        "id": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.JwPGCpqJFY0.O/m=RMhBfe/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/exm=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi,aa,abd,async,dvl,foot,fpe,ipv6,lu,m,mu,sf,sonic,spch,d3l,udlg,WgDvvc/ed=1/rs=ACT90oHeE0UQnIG01GF4SuYc95BMS1fG-g",
-        "objs": [
-            {
-                "id": "3327.16",
-                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.o2ZO8UVnYtc.O/m=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/rs=ACT90oFLjApL1A1UAhpRqrA03TL3JAq-bQ",
-                "mimeType": "text/javascript",
-                "statusCode": 200,
-                "responseReceivedTime": 257.645,
-                "endTime": 257.875,
-                "transferSize": 3608,
-                "activityId": "Networking_10",
-                "startTime": 245.354,
-                "url": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.JwPGCpqJFY0.O/m=RMhBfe/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/exm=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi,aa,abd,async,dvl,foot,fpe,ipv6,lu,m,mu,sf,sonic,spch,d3l,udlg,WgDvvc/ed=1/rs=ACT90oHeE0UQnIG01GF4SuYc95BMS1fG-g"
-            },
-            {
-                "startTime": 257.982,
-                "url": "https://www.google.com/xjs/_/js/k=xjs.s.zh_CN.JwPGCpqJFY0.O/m=RMhBfe/am=wCL0fwDy_wcGFEUrGGEB02AYGg/rt=j/d=1/exm=sx,sb,cdos,cr,elog,hsm,jsa,r,d,csi,aa,abd,async,dvl,foot,fpe,ipv6,lu,m,mu,sf,sonic,spch,d3l,udlg,WgDvvc/ed=1/rs=ACT90oHeE0UQnIG01GF4SuYc95BMS1fG-g",
-                "endTime": 260.449,
-                "activityId": "Scripting_11"
+                "url": null,
+                "endTime": 1867.406
             }
         ]
     },
@@ -441,106 +425,106 @@
         "id": "Rendering",
         "objs": [
             {
-                "startTime": 44.266,
-                "endTime": 44.532,
                 "name": "Layout",
-                "activityId": "Rendering_0"
+                "activityId": "Rendering_0",
+                "startTime": 119.265,
+                "endTime": 123.05
             },
             {
-                "startTime": 46.676,
-                "endTime": 55.649,
-                "name": "Layout",
-                "activityId": "Rendering_1"
-            },
-            {
-                "startTime": 55.659,
-                "endTime": 55.881,
                 "name": "UpdateLayerTree",
-                "activityId": "Rendering_2"
+                "activityId": "Rendering_1",
+                "startTime": 123.173,
+                "endTime": 124.726
             },
             {
-                "startTime": 98.743,
-                "endTime": 103.108,
                 "name": "Layout",
-                "activityId": "Rendering_3"
+                "activityId": "Rendering_2",
+                "startTime": 142.0,
+                "endTime": 142.308
             },
             {
-                "startTime": 103.119,
-                "endTime": 103.247,
                 "name": "UpdateLayerTree",
-                "activityId": "Rendering_4"
+                "activityId": "Rendering_3",
+                "startTime": 172.705,
+                "endTime": 173.114
             },
             {
-                "startTime": 105.338,
-                "endTime": 105.396,
+                "name": "UpdateLayerTree",
+                "activityId": "Rendering_4",
+                "startTime": 182.441,
+                "endTime": 182.614
+            },
+            {
+                "name": "UpdateLayerTree",
+                "activityId": "Rendering_5",
+                "startTime": 192.926,
+                "endTime": 193.006
+            },
+            {
+                "name": "UpdateLayerTree",
+                "activityId": "Rendering_6",
+                "startTime": 541.218,
+                "endTime": 541.5219999999999
+            },
+            {
+                "name": "UpdateLayerTree",
+                "activityId": "Rendering_7",
+                "startTime": 811.066,
+                "endTime": 811.113
+            },
+            {
                 "name": "Layout",
-                "activityId": "Rendering_5"
+                "activityId": "Rendering_8",
+                "startTime": 1296.295,
+                "endTime": 1296.666
             },
             {
-                "startTime": 105.406,
-                "endTime": 105.479,
-                "name": "UpdateLayerTree",
-                "activityId": "Rendering_6"
-            },
-            {
-                "startTime": 107.234,
-                "endTime": 107.339,
                 "name": "Layout",
-                "activityId": "Rendering_7"
+                "activityId": "Rendering_9",
+                "startTime": 1306.101,
+                "endTime": 1306.377
             },
             {
-                "startTime": 107.97,
-                "endTime": 108.133,
                 "name": "Layout",
-                "activityId": "Rendering_8"
+                "activityId": "Rendering_10",
+                "startTime": 1317.219,
+                "endTime": 1317.466
             },
             {
-                "startTime": 127.925,
-                "endTime": 128.079,
-                "name": "UpdateLayerTree",
-                "activityId": "Rendering_9"
-            },
-            {
-                "startTime": 181.382,
-                "endTime": 181.423,
-                "name": "UpdateLayerTree",
-                "activityId": "Rendering_10"
-            },
-            {
-                "startTime": 212.194,
-                "endTime": 212.20999999999998,
-                "name": "UpdateLayerTree",
-                "activityId": "Rendering_11"
-            },
-            {
-                "startTime": 224.486,
-                "endTime": 224.611,
                 "name": "Layout",
-                "activityId": "Rendering_12"
+                "activityId": "Rendering_11",
+                "startTime": 1327.82,
+                "endTime": 1328.032
             },
             {
-                "startTime": 227.744,
-                "endTime": 227.897,
                 "name": "Layout",
-                "activityId": "Rendering_13"
+                "activityId": "Rendering_12",
+                "startTime": 1338.465,
+                "endTime": 1338.675
             },
             {
-                "startTime": 230.692,
-                "endTime": 230.84300000000002,
                 "name": "UpdateLayerTree",
-                "activityId": "Rendering_14"
+                "activityId": "Rendering_13",
+                "startTime": 1460.48,
+                "endTime": 1460.571
             },
             {
-                "startTime": 242.286,
-                "endTime": 242.441,
-                "name": "Layout",
-                "activityId": "Rendering_15"
-            },
-            {
-                "startTime": 246.61,
-                "endTime": 246.752,
                 "name": "UpdateLayerTree",
-                "activityId": "Rendering_16"
+                "activityId": "Rendering_14",
+                "startTime": 1849.553,
+                "endTime": 1849.6190000000001
+            },
+            {
+                "name": "UpdateLayerTree",
+                "activityId": "Rendering_15",
+                "startTime": 1870.339,
+                "endTime": 1870.389
+            },
+            {
+                "name": "UpdateLayerTree",
+                "activityId": "Rendering_16",
+                "startTime": 1884.366,
+                "endTime": 1884.42
             }
         ]
     },
@@ -548,165 +532,98 @@
         "id": "Painting",
         "objs": [
             {
-                "startTime": 8.284,
-                "layerTreeId": 1,
-                "endTime": 8.65,
-                "name": "CompositeLayers",
-                "activityId": "Painting_7"
-            },
-            {
-                "startTime": 55.904,
-                "endTime": 56.061,
                 "name": "Paint",
-                "activityId": "Painting_8"
+                "activityId": "Painting_0",
+                "startTime": 124.821,
+                "endTime": 125.63
             },
             {
-                "startTime": 56.142,
-                "layerTreeId": 1,
-                "endTime": 56.243,
                 "name": "CompositeLayers",
-                "activityId": "Painting_9"
-            },
-            {
-                "startTime": 58.775,
                 "layerTreeId": 1,
-                "endTime": 58.972,
-                "name": "CompositeLayers",
-                "activityId": "Painting_10"
+                "activityId": "Painting_1",
+                "startTime": 125.839,
+                "endTime": 128.437
             },
             {
-                "startTime": 74.773,
-                "layerTreeId": 1,
-                "endTime": 75.096,
-                "name": "CompositeLayers",
-                "activityId": "Painting_11"
-            },
-            {
-                "startTime": 103.258,
-                "endTime": 103.449,
                 "name": "Paint",
-                "activityId": "Painting_12"
+                "activityId": "Painting_2",
+                "startTime": 173.165,
+                "endTime": 173.564
             },
             {
-                "startTime": 103.522,
-                "layerTreeId": 1,
-                "endTime": 103.598,
                 "name": "CompositeLayers",
-                "activityId": "Painting_13"
+                "layerTreeId": 1,
+                "activityId": "Painting_3",
+                "startTime": 173.611,
+                "endTime": 173.658
             },
             {
-                "startTime": 105.489,
-                "endTime": 105.534,
                 "name": "Paint",
-                "activityId": "Painting_14"
+                "activityId": "Painting_4",
+                "startTime": 182.66,
+                "endTime": 183.131
             },
             {
-                "startTime": 105.545,
-                "layerTreeId": 1,
-                "endTime": 105.561,
                 "name": "CompositeLayers",
-                "activityId": "Painting_15"
-            },
-            {
-                "startTime": 127.478,
                 "layerTreeId": 1,
-                "endTime": 127.622,
-                "name": "CompositeLayers",
-                "activityId": "Painting_16"
+                "activityId": "Painting_5",
+                "startTime": 184.443,
+                "endTime": 185.269
             },
             {
-                "startTime": 128.092,
-                "endTime": 128.221,
+                "name": "CompositeLayers",
+                "layerTreeId": 1,
+                "activityId": "Painting_6",
+                "startTime": 193.032,
+                "endTime": 193.076
+            },
+            {
                 "name": "Paint",
-                "activityId": "Painting_17"
+                "activityId": "Painting_7",
+                "startTime": 541.617,
+                "endTime": 542.5989999999999
             },
             {
-                "startTime": 128.436,
-                "layerTreeId": 1,
-                "endTime": 128.509,
                 "name": "CompositeLayers",
-                "activityId": "Painting_18"
-            },
-            {
-                "startTime": 157.093,
                 "layerTreeId": 1,
-                "endTime": 157.197,
+                "activityId": "Painting_8",
+                "startTime": 543.046,
+                "endTime": 546.158
+            },
+            {
                 "name": "CompositeLayers",
-                "activityId": "Painting_19"
-            },
-            {
-                "startTime": 181.437,
-                "endTime": 181.53,
-                "name": "Paint",
-                "activityId": "Painting_20"
-            },
-            {
-                "startTime": 181.587,
                 "layerTreeId": 1,
-                "endTime": 181.687,
-                "name": "CompositeLayers",
-                "activityId": "Painting_21"
+                "activityId": "Painting_9",
+                "startTime": 811.183,
+                "endTime": 812.739
             },
             {
-                "startTime": 187.122,
+                "name": "CompositeLayers",
                 "layerTreeId": 1,
-                "endTime": 187.195,
-                "name": "CompositeLayers",
-                "activityId": "Painting_22"
+                "activityId": "Painting_10",
+                "startTime": 1460.594,
+                "endTime": 1460.645
             },
             {
-                "startTime": 212.231,
+                "name": "CompositeLayers",
                 "layerTreeId": 1,
-                "endTime": 212.273,
-                "name": "CompositeLayers",
-                "activityId": "Painting_23"
+                "activityId": "Painting_11",
+                "startTime": 1850.301,
+                "endTime": 1850.343
             },
             {
-                "startTime": 217.304,
+                "name": "CompositeLayers",
                 "layerTreeId": 1,
-                "endTime": 217.384,
+                "activityId": "Painting_12",
+                "startTime": 1870.413,
+                "endTime": 1870.431
+            },
+            {
                 "name": "CompositeLayers",
-                "activityId": "Painting_24"
-            },
-            {
-                "startTime": 230.855,
-                "endTime": 230.96099999999998,
-                "name": "Paint",
-                "activityId": "Painting_25"
-            },
-            {
-                "startTime": 231.013,
                 "layerTreeId": 1,
-                "endTime": 231.066,
-                "name": "CompositeLayers",
-                "activityId": "Painting_26"
-            },
-            {
-                "startTime": 246.762,
-                "endTime": 246.939,
-                "name": "Paint",
-                "activityId": "Painting_27"
-            },
-            {
-                "startTime": 246.982,
-                "layerTreeId": 1,
-                "endTime": 247.092,
-                "name": "CompositeLayers",
-                "activityId": "Painting_28"
-            },
-            {
-                "startTime": 247.612,
-                "layerTreeId": 1,
-                "endTime": 247.662,
-                "name": "CompositeLayers",
-                "activityId": "Painting_29"
-            },
-            {
-                "startTime": 266.327,
-                "layerTreeId": 1,
-                "endTime": 266.447,
-                "name": "CompositeLayers",
-                "activityId": "Painting_30"
+                "activityId": "Painting_13",
+                "startTime": 1884.441,
+                "endTime": 1884.491
             }
         ]
     },
@@ -714,512 +631,240 @@
         "id": "Deps",
         "objs": [
             {
-                "time": 24.511,
-                "a1": "Networking_0",
-                "a2": "Loading_0"
-            },
-            {
-                "time": 24.947,
-                "a1": "Networking_0",
-                "a2": "Scripting_0"
-            },
-            {
-                "time": 33.429,
-                "a1": "Networking_0",
-                "a2": "Loading_1"
-            },
-            {
+                "a2": "Loading_0",
                 "time": -1,
-                "a1": "Scripting_0",
-                "a2": "Loading_1"
+                "a1": "Networking_0"
             },
             {
+                "a2": "Networking_1",
+                "time": 57.145,
+                "a1": "Loading_0"
+            },
+            {
+                "a2": "Scripting_0",
                 "time": -1,
-                "a1": "Loading_0",
-                "a2": "Loading_1"
+                "a1": "Networking_0"
             },
             {
+                "a2": "Loading_1",
                 "time": -1,
-                "a1": "Loading_1",
-                "a2": "Networking_1"
+                "a1": "Networking_0"
             },
             {
-                "time": 38.269,
-                "a1": "Networking_0",
-                "a2": "Loading_2"
-            },
-            {
+                "a2": "Loading_1",
                 "time": -1,
-                "a1": "Scripting_0",
-                "a2": "Loading_2"
+                "a1": "Scripting_0"
             },
             {
+                "a2": "Loading_1",
                 "time": -1,
-                "a1": "Loading_1",
-                "a2": "Loading_2"
+                "a1": "Loading_0"
             },
             {
-                "time": 38.338,
-                "a1": "Networking_0",
-                "a2": "Scripting_1"
-            },
-            {
-                "time": 43.303,
-                "a1": "Networking_0",
-                "a2": "Scripting_2"
-            },
-            {
+                "a2": "Scripting_1",
                 "time": -1,
-                "a1": "Loading_2",
-                "a2": "Networking_2"
+                "a1": "Networking_0"
             },
             {
+                "a2": "Networking_2",
                 "time": -1,
-                "a1": "Loading_2",
-                "a2": "Networking_3"
+                "a1": "Loading_1"
             },
             {
-                "time": 57.91,
-                "a1": "Networking_0",
-                "a2": "Loading_3"
-            },
-            {
+                "a2": "Loading_2",
                 "time": -1,
-                "a1": "Scripting_2",
-                "a2": "Loading_3"
+                "a1": "Networking_0"
             },
             {
+                "a2": "Loading_2",
                 "time": -1,
-                "a1": "Loading_2",
-                "a2": "Loading_3"
+                "a1": "Scripting_1"
             },
             {
-                "time": 58.903,
-                "a1": "Networking_0",
-                "a2": "Loading_4"
-            },
-            {
+                "a2": "Loading_2",
                 "time": -1,
-                "a1": "Scripting_2",
-                "a2": "Loading_4"
+                "a1": "Loading_1"
             },
             {
+                "a2": "Scripting_2",
                 "time": -1,
-                "a1": "Loading_3",
-                "a2": "Loading_4"
+                "a1": "Networking_0"
             },
             {
-                "time": 58.954,
-                "a1": "Networking_0",
-                "a2": "Scripting_3"
-            },
-            {
-                "time": 59.642,
-                "a1": "Networking_0",
-                "a2": "Loading_5"
-            },
-            {
+                "a2": "Scripting_3",
                 "time": -1,
-                "a1": "Scripting_3",
-                "a2": "Loading_5"
+                "a1": "Networking_0"
             },
             {
+                "a2": "Scripting_4",
                 "time": -1,
-                "a1": "Loading_4",
-                "a2": "Loading_5"
+                "a1": "Networking_0"
             },
             {
-                "time": 59.667,
-                "a1": "Networking_0",
-                "a2": "Scripting_4"
-            },
-            {
+                "a2": "Scripting_5",
                 "time": -1,
-                "a1": "Scripting_4",
-                "a2": "Networking_4"
+                "a1": "Networking_0"
             },
             {
-                "time": 68.498,
-                "a1": "Networking_0",
-                "a2": "Loading_6"
+                "a2": "Networking_3",
+                "time": 169.296,
+                "a1": "Scripting_5"
             },
             {
+                "a2": "Loading_3",
                 "time": -1,
-                "a1": "Scripting_4",
-                "a2": "Loading_6"
+                "a1": "Networking_0"
             },
             {
+                "a2": "Loading_3",
                 "time": -1,
-                "a1": "Loading_5",
-                "a2": "Loading_6"
+                "a1": "Scripting_5"
             },
             {
-                "time": 71.511,
-                "a1": "Networking_0",
-                "a2": "Loading_7"
-            },
-            {
+                "a2": "Loading_3",
                 "time": -1,
-                "a1": "Scripting_4",
-                "a2": "Loading_7"
+                "a1": "Loading_2"
             },
             {
+                "a2": "Scripting_6",
                 "time": -1,
-                "a1": "Loading_6",
-                "a2": "Loading_7"
+                "a1": "Networking_0"
             },
             {
-                "time": 71.954,
-                "a1": "Networking_0",
-                "a2": "Scripting_5"
-            },
-            {
+                "a2": "Scripting_7",
                 "time": -1,
-                "a1": "Networking_0",
-                "a2": "Loading_8"
+                "a1": "Networking_0"
             },
             {
+                "a2": "Networking_4",
                 "time": -1,
-                "a1": "Scripting_5",
-                "a2": "Loading_8"
+                "a1": "Scripting_7"
             },
             {
+                "a2": "Scripting_8",
                 "time": -1,
-                "a1": "Loading_7",
-                "a2": "Loading_8"
+                "a1": "Networking_3"
             },
             {
+                "a2": "Networking_5",
                 "time": -1,
-                "a1": "Networking_0",
-                "a2": "Scripting_6"
+                "a1": "Scripting_7"
             },
             {
+                "a2": "Scripting_9",
                 "time": -1,
-                "a1": "Networking_0",
-                "a2": "Scripting_7"
+                "a1": "Networking_4"
             },
             {
+                "a2": "Networking_6",
                 "time": -1,
-                "a1": "Networking_0",
-                "a2": "Scripting_8"
+                "a1": "Scripting_9"
             },
             {
+                "a2": "Loading_4",
                 "time": -1,
-                "a1": "Networking_0",
-                "a2": "Loading_9"
+                "a1": "Scripting_7"
             },
             {
+                "a2": "Loading_5",
                 "time": -1,
-                "a1": "Scripting_8",
-                "a2": "Loading_9"
+                "a1": "Scripting_7"
             },
             {
+                "a2": "Networking_7",
                 "time": -1,
-                "a1": "Loading_8",
-                "a2": "Loading_9"
+                "a1": "Loading_5"
             },
             {
+                "a2": "Networking_8",
                 "time": -1,
-                "a1": "Scripting_8",
-                "a2": "Networking_5"
+                "a1": "Loading_5"
             },
             {
+                "a2": "Networking_9",
                 "time": -1,
-                "a1": "Networking_4",
-                "a2": "Scripting_9"
+                "a1": "Loading_5"
             },
             {
+                "a2": "Networking_10",
                 "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Networking_6"
+                "a1": "Loading_5"
             },
             {
+                "a2": "Networking_11",
                 "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Networking_7"
+                "a1": "Loading_5"
             },
             {
+                "a2": "Scripting_10",
                 "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_10"
+                "a1": "Networking_6"
             },
             {
+                "a2": "Networking_12",
                 "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_11"
+                "a1": "Scripting_9"
             },
             {
+                "a2": "Scripting_11",
                 "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_12"
+                "a1": "Networking_12"
             },
             {
+                "a2": "Networking_13",
                 "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_13"
+                "a1": "Scripting_7"
             },
             {
+                "a2": "Loading_11",
                 "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_14"
-            },
-            {
-                "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_15"
-            },
-            {
-                "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_16"
-            },
-            {
-                "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_17"
-            },
-            {
-                "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_18"
-            },
-            {
-                "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Loading_19"
-            },
-            {
-                "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Networking_8"
-            },
-            {
-                "time": -1,
-                "a1": "Loading_19",
-                "a2": "Networking_9"
-            },
-            {
-                "time": -1,
-                "a1": "Networking_6",
-                "a2": "Scripting_10"
-            },
-            {
-                "time": -1,
-                "a1": "Scripting_9",
-                "a2": "Networking_10"
-            },
-            {
-                "time": -1,
-                "a1": "Networking_10",
-                "a2": "Scripting_11"
+                "a1": "Networking_13"
             }
         ]
     },
     {
-        "dns": {},
+        "sockets_bytes_in": 269094,
         "id": "Netlog",
-        "ssl_sockets_bytes_out": 1998,
         "sockets": {
-            "0x1bf": {
-                "bytes_in": 0,
-                "bytes_out": 0
+            "0x3285": {
+                "bytes_out": 227,
+                "bytes_in": 46
             },
-            "0x1c6": {
-                "bytes_in": 0,
-                "bytes_out": 0
+            "0x3216": {
+                "bytes_out": 0,
+                "bytes_in": 0
             },
-            "0x285": {
-                "bytes_in": 0,
-                "bytes_out": 0
+            "0x3213": {
+                "bytes_out": 0,
+                "bytes_in": 0
             },
-            "0x2c8": {
-                "bytes_in": 0,
-                "bytes_out": 0
+            "0x3317": {
+                "bytes_out": 1572,
+                "bytes_in": 632
             },
-            "0x31b": {
-                "bytes_in": 0,
-                "bytes_out": 0
+            "0x3215": {
+                "bytes_out": 1484,
+                "bytes_in": 242967
             },
-            "0x3f7": {
-                "bytes_in": 2960,
-                "bytes_out": 461
-            },
-            "0x413": {
-                "bytes_in": 4368,
-                "bytes_out": 466
-            },
-            "0x1c3": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d3": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d5": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x409": {
-                "bytes_in": 4369,
-                "bytes_out": 461
-            },
-            "0x1cd": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x395": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1cc": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x287": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d6": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d0": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d8": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1c0": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1c8": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d7": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d9": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1c2": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d4": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1c5": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1c1": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x31c": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1ce": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1d1": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1cf": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1c7": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x288": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x406": {
-                "bytes_in": 12719,
-                "bytes_out": 944
-            },
-            "0x1cb": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x27e": {
-                "bytes_in": 46,
-                "bytes_out": 1042
-            },
-            "0x31d": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x412": {
-                "bytes_in": 4758,
-                "bytes_out": 1026
-            },
-            "0x1c4": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x286": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x1c9": {
-                "bytes_in": 0,
-                "bytes_out": 0
-            },
-            "0x415": {
-                "bytes_in": 0,
-                "bytes_out": 201
-            },
-            "0x410": {
-                "bytes_in": 4368,
-                "bytes_out": 461
-            },
-            "0x414": {
-                "bytes_in": 0,
-                "bytes_out": 201
-            },
-            "0x122": {
-                "bytes_in": 67173,
-                "bytes_out": 290
-            },
-            "0x3fa": {
-                "bytes_in": 2960,
-                "bytes_out": 461
-            },
-            "0x1d2": {
-                "bytes_in": 0,
-                "bytes_out": 0
+            "0x3210": {
+                "bytes_out": 360,
+                "bytes_in": 25449
             }
         },
-        "ssl_sockets_bytes_in": 73086,
-        "sockets_bytes_in": 103721,
+        "ssl_sockets_bytes_out": 2452,
+        "dns": {},
+        "sockets_bytes_out": 3643,
         "dnsTime": -1,
-        "sockets_bytes_out": 6014
+        "ssl_sockets_bytes_in": 263243
     },
     {
-        "computationTime": 91.57,
+        "networkingTime": 40.43,
         "criticalPath": [
             "Networking_0",
-            "Scripting_4",
-            "Networking_4",
-            "Scripting_9",
-            "Networking_10",
-            "Scripting_11"
+            "Scripting_7",
+            "Networking_13",
+            "Loading_11"
         ],
-        "networkingTime": 119.95
+        "computationTime": 53.69
     }
 ]
