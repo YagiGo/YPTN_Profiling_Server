@@ -13,13 +13,19 @@
     <button id="submitURL" >Submit URL</button>
     <p id="inProgress">Processing...Please Wait</p>
     <p id="finished">Process finished, click button below to show the result. </p>
-    <a href="profiled_result" id="afterFinishing" target="_blank"><button id="showGraph">Show Result</button></a>
+    <!--<a href="profiled_result" id="afterFinishing" target="_blank"><button id="showGraph">Show Result</button></a>-->
+    <button id="showGraph" onclick="window.open('/profiled_result')">Show Result</button>
+    <button id="showJSON">Show Detail</button>
+    <button id="hideJSON">Hide Detail</button>
+    <div class="json-data" id="profiled-data"><p></p></div>
     <script>
         // Init
         $(document).ready(function() {
-            $("#afterFinishing").hide();
+            $("#showGraph").hide();
             $("#inProgress").hide();
             $("#finished").hide();
+            $("#showJSON").hide();
+            $("#hideJSON").hide();
         });
         window.onload = document.getElementById('submitURL').addEventListener('click', function() {
             var inputURL = document.getElementById('profilingURL').value;
@@ -30,17 +36,39 @@
                     $("#inProgress").hide();
                     $("#finished").show();
                     $("#afterFinishing").show();
+                    $("#showJSON").show();
+                    $("#showGraph").show();
+                    $("#hideJSON").show();
                 }
             });
             // Use AJAX to send data to the server
             // alert(inputURL);
         });
+
         window.onload = document.getElementById('showGraph').addEventListener('click', function() {
+            var inputURL = document.getElementById('profilingURL').value;
+            $.post('/profiled_result', inputURL, function(){});
+
+        });
+
+        window.onload = document.getElementById('showJSON').addEventListener('click', function() {
+            var inputURL = document.getElementById('profilingURL').value;
+            $.post('/profiled_data', inputURL, function(data){
+                if($("#profiled-data").find("p").is(":empty")) {
+                    $("#profiled-data").find("p").append(data)
+                }
+            $("#profiled-data").show();
+            });
+
+        });
+        window.onload = document.getElementById('hideJSON').addEventListener('click', function () {
+            $("#profiled-data").hide();
+
+        });
             //var inputURL = document.getElementById('profilingURL').value;
             //$.post('profiled_result', inputURL, function() {});
             //event.preventDefault();
             //$.get('profiled_result');
-        });
     </script>
 </body>
 </html>
