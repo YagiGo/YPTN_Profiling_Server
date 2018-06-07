@@ -41,7 +41,7 @@ class ShowingResults(Resource):
                         '0_', requested_site.split('/')[-1].replace(" ", ""), '.json'])
         with open(json_file_path, 'r') as f:
             return jsonify(f.read())
-        
+
     def get_profiled_data_json(self, url):
         # Start a new thread to process
         try:
@@ -49,8 +49,11 @@ class ShowingResults(Resource):
         except Exception as e:
             return jsonify({'status':400, 'info':str(e)})
 
-    def get_profiled_graph(self,url):
-        pass
 
+# adding profiling urls
+api.add_resource(DealingWithUrls, '/input_urls/<string:url>')
+api.add_resource(ProfilingSites, '/profiling/<string:url>')
+api.add_resource(ShowingResults, '/showing_result/<string:url>')
 
-api.add_resource(ProfilingSites, '/<string:url>')
+if __name__ == "__main__":
+    app.run(debug=True)
