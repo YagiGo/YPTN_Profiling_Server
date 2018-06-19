@@ -95,7 +95,8 @@ class DrawWaterfall():
         for _index, _event in enumerate(self.data):
             if not _event.get('id') == 'Deps':
                 try:
-                    for obj in _event.get('objs'):
+                    print(_event)
+                    for obj in _event['objs']:
                         _nodeData = obj
                         _nodeId = obj
                         # _nodeId = _obj[0]
@@ -290,8 +291,7 @@ class DrawWaterfall():
 
 
     def showPlot(self):
-        # show(self.p)
-        pass
+        show(self.p)
 
     def draw_from_dict(self, y_order_url_lookup, data):
         for obj in data:
@@ -482,7 +482,7 @@ class DrawWaterfall():
 
 if __name__ == "__main__":
     _plot = DrawWaterfall('./results/zdnet.json', 'line.html')
-    # _plot.draw_from_json()
+    _plot.draw_from_json()
     #_plot.d
     _plot.draw_all_dependency()
     _plot.showPlot()

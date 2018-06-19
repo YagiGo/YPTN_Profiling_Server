@@ -26,7 +26,7 @@ class RESTfulAPITest(unittest.TestCase):
                                 [str(uuid.uuid3(name=quote_plus(key.replace('.',''), encoding='utf-8'), namespace=uuid.NAMESPACE_OID))])
 
     def test_profiling(self):
-        test_sets = ['https://www.google.com']
+        test_sets = ['https://www.yahoo.co.jp']
         for test_url in test_sets:
             key = urlparse(test_url).netloc
             put('http://localhost:5000/input_urls/' + quote_plus(key, encoding='utf-8'), {"data": test_url})

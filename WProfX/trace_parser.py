@@ -1183,9 +1183,10 @@ class Trace():
 
         _plot = waterfall_draw.DrawWaterfall(_resJson, _outf, _lookup_dict, _order_lookup)
         #_plot = waterfall_draw.DrawWaterfall(_resJson, _outf, _lookup_dict, _order_lookup, self.all_modified_dict)
-        _plot.draw_from_json()
         # _plot.draw_from_json()
-        # _plot.draw_critical_path(self.critical_path)
+        _plot.draw_from_json()
+        _plot.draw_critical_path(self.critical_path)
+        print("WORKING!")
         _plot.draw_all_dependency()
         _plot.showPlot()
 
@@ -1959,12 +1960,13 @@ def main():
     _graph_output_name = ''.join([os.path.normpath(os.path.dirname(os.path.realpath(__file__))), '/../' , 'templates/',
                                   'profiled_result/',_site_name, '.html'])
     print(_graph_output_name)
+    print(_output_file_path)
     trace.draw_waterfall(_output_file_path, _graph_output_name)
 
 
 if '__main__' == __name__:
     #  import cProfile
     #  cProfile.run('main()', None, 2)
-    # main()
-    test_site = "www.google.com"
-    analyzeTrace(test_site)
+    main()
+    # test_site = "www.yahoo.co.jp"
+    # analyzeTrace(test_site)

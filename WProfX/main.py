@@ -145,5 +145,5 @@ def traceWithInput(input_string):
     logging.info(100 * '-' + '\nTotal time: ' + str(stop - start))
 
 if __name__ == '__main__':
-    # main()
-    traceWithInput('https://www.baidu.com')
+    main()
+    # traceWithInput('https://www.baidu.com')

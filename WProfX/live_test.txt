@@ -1,1 +1,7 @@
+https://www.google.com
+https://www.facebook.com
 https://www.yahoo.co.jp
+https://www.twitter.com
+https://www.amazon.co.jp
+https://www.taobao.com
+https://news.baidu.com
