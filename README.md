@@ -1,6 +1,6 @@
 # YPTN_Profiling_Server
 ## Simple Intro
-YPTN Profiler is a webpage performance profiling tool that can visualize how your webpages performance.
+YPTN Profiler is a webpage performance profiling tool that can visualize how your webpages perform.
 
 ## Speciality
 * Visualize Your Webpage Performance
