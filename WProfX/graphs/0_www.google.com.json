@@ -1,116 +1,108 @@
 [
     {
+        "load": 153.8,
+        "cpu_time": 183555
+    },
+    {
         "objs": [
             {
-                "transferSize": 22696,
-                "responseReceivedTime": 223.911,
-                "url": "https://www.google.com/",
-                "id": "30168.1",
-                "startTime": 0.0,
-                "endTime": 309.68,
                 "activityId": "Networking_0",
-                "fromScript": "Null",
+                "startTime": 0.0,
+                "id": "03CEBA78A05325D4127539E534DD8BAB",
                 "mimeType": "text/html",
+                "endTime": 44.947,
+                "transferSize": 13616,
+                "url": "https://www.google.com/",
+                "fromScript": "Null",
+                "responseReceivedTime": 0.061,
                 "statusCode": 200
             },
             {
-                "url": "https://www.google.com/",
-                "startTime": 510.159,
-                "endTime": 545.887,
-                "activityId": "Scripting_0"
+                "startTime": 23.934,
+                "endTime": 35.508,
+                "activityId": "Scripting_0",
+                "url": "https://www.google.com/"
             },
             {
-                "url": "https://www.google.com/",
-                "startTime": 546.264,
-                "endTime": 676.939,
-                "activityId": "Scripting_1"
+                "startTime": 41.258,
+                "endTime": 42.513,
+                "activityId": "Scripting_1",
+                "url": "https://www.google.com/"
             },
             {
-                "url": "https://www.google.com/",
-                "startTime": 866.985,
-                "endTime": 898.055,
-                "activityId": "Scripting_2"
+                "startTime": 51.857,
+                "endTime": 51.969,
+                "activityId": "Scripting_2",
+                "url": "https://www.google.com/"
             },
             {
-                "url": "https://www.google.com/",
-                "startTime": 996.749,
-                "endTime": 1364.823,
-                "activityId": "Scripting_3"
+                "startTime": 53.162,
+                "endTime": 53.767,
+                "activityId": "Scripting_3",
+                "url": "https://www.google.com/"
             },
             {
-                "url": "https://www.google.com/",
-                "startTime": 1365.563,
-                "endTime": 1390.646,
-                "activityId": "Scripting_4"
+                "startTime": 54.069,
+                "endTime": 59.775,
+                "activityId": "Scripting_4",
+                "url": "https://www.google.com/"
             },
             {
-                "url": "https://www.google.com/",
-                "startTime": 1390.936,
-                "endTime": 1464.062,
-                "activityId": "Scripting_5"
+                "startTime": 61.831,
+                "endTime": 62.716,
+                "activityId": "Scripting_5",
+                "url": "https://www.google.com/"
             },
             {
-                "url": "https://www.google.com/",
-                "startTime": 1464.878,
-                "endTime": 1798.864,
-                "activityId": "Scripting_6"
+                "startTime": 62.773,
+                "endTime": 64.226,
+                "activityId": "Scripting_6",
+                "url": "https://www.google.com/"
             },
             {
-                "url": "https://www.google.com/",
-                "startTime": 1843.238,
-                "endTime": 1844.494,
-                "activityId": "Scripting_7"
-            },
-            {
-                "url": "https://www.google.com/",
-                "startTime": 1844.68,
-                "endTime": 1852.411,
-                "activityId": "Scripting_8"
-            },
-            {
-                "name": "ParseHTML",
                 "styleSheetUrl": null,
-                "startTime": 414.417,
-                "endTime": 684.664,
+                "endTime": 35.548,
+                "name": "ParseHTML",
+                "fromScript": null,
+                "activityId": "Loading_0",
+                "url": "https://www.google.com/",
+                "startTime": 22.86
+            },
+            {
+                "styleSheetUrl": null,
+                "endTime": 43.773,
+                "name": "ParseHTML",
+                "fromScript": null,
                 "activityId": "Loading_1",
                 "url": "https://www.google.com/",
-                "fromScript": null
+                "startTime": 37.511
             },
             {
-                "name": "ParseHTML",
                 "styleSheetUrl": null,
-                "startTime": 866.758,
-                "endTime": 925.482,
+                "endTime": 52.378,
+                "name": "ParseHTML",
+                "fromScript": null,
                 "activityId": "Loading_2",
                 "url": "https://www.google.com/",
-                "fromScript": null
+                "startTime": 51.809
             },
             {
-                "name": "ParseHTML",
                 "styleSheetUrl": null,
-                "startTime": 996.426,
-                "endTime": 1798.951,
+                "endTime": 60.828,
+                "name": "ParseHTML",
+                "fromScript": null,
                 "activityId": "Loading_3",
                 "url": "https://www.google.com/",
-                "fromScript": null
+                "startTime": 53.104
             },
             {
-                "name": "ParseHTML",
                 "styleSheetUrl": null,
-                "startTime": 1839.622,
-                "endTime": 1842.579,
+                "endTime": 67.056,
+                "name": "ParseHTML",
+                "fromScript": null,
                 "activityId": "Loading_4",
                 "url": "https://www.google.com/",
-                "fromScript": null
-            },
-            {
-                "name": "ParseHTML",
-                "styleSheetUrl": null,
-                "startTime": 1843.04,
-                "endTime": 1860.672,
-                "activityId": "Loading_5",
-                "url": "https://www.google.com/",
-                "fromScript": null
+                "startTime": 61.781
             }
         ],
         "id": "https://www.google.com/"
@@ -118,295 +110,451 @@
     {
         "objs": [
             {
-                "transferSize": 5180,
-                "responseReceivedTime": 761.071,
-                "url": "https://www.google.com/logos/doodles/2018/world-cup-2018-day-6-5186186996875264-5692201761767424-ssw.png",
-                "id": "30168.2",
-                "startTime": 415.698,
-                "endTime": 864.885,
                 "activityId": "Networking_1",
-                "fromScript": "Null",
+                "startTime": 36.392,
+                "id": "1000023161.18",
                 "mimeType": "image/png",
+                "endTime": 80.084,
+                "transferSize": 648,
+                "url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+                "fromScript": "Null",
+                "responseReceivedTime": 77.8,
                 "statusCode": 200
             }
         ],
-        "id": "https://www.google.com/logos/doodles/2018/world-cup-2018-day-6-5186186996875264-5692201761767424-ssw.png"
+        "id": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
     },
     {
         "objs": [
             {
-                "transferSize": 0,
-                "responseReceivedTime": 900.738,
-                "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAoUlEQVR42mOYOXMmAxnYYSYEPIDimVAxuBpyDT0DxP/R8Blkw8kxeCYWQ2F4JiUGP8Bj8INBZ7AzEF8mNSjwxbQMEK9EMuAWsZGHK6bPQi34DOWD6AogdiE2ueGLaRheDcRyxAYbMRHyCYhdSY1kkmKaHIPxBcVlSlyMK/JuURrGuJIbKPbLKUkVhDDZ6ZimOW94FkI0LY9pVoPQrM4jCgMAZZMJ3ZJdH7IAAAAASUVORK5CYII=",
-                "id": "30168.4",
-                "startTime": 900.327,
-                "endTime": 901.039,
                 "activityId": "Networking_2",
+                "startTime": 47.939,
+                "id": "1000023161.21",
+                "mimeType": "image/png",
+                "endTime": 61.545,
+                "transferSize": 7325,
+                "url": "https://ssl.gstatic.com/gb/images/i1_1967ca6a.png",
                 "fromScript": "Null",
-                "mimeType": "image/png",
+                "responseReceivedTime": 61.401,
                 "statusCode": 200
             }
         ],
-        "id": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAoUlEQVR42mOYOXMmAxnYYSYEPIDimVAxuBpyDT0DxP/R8Blkw8kxeCYWQ2F4JiUGP8Bj8INBZ7AzEF8mNSjwxbQMEK9EMuAWsZGHK6bPQi34DOWD6AogdiE2ueGLaRheDcRyxAYbMRHyCYhdSY1kkmKaHIPxBcVlSlyMK/JuURrGuJIbKPbLKUkVhDDZ6ZimOW94FkI0LY9pVoPQrM4jCgMAZZMJ3ZJdH7IAAAAASUVORK5CYII="
+        "id": "https://ssl.gstatic.com/gb/images/i1_1967ca6a.png"
     },
     {
         "objs": [
             {
-                "transferSize": 3715,
-                "responseReceivedTime": 1814.84,
-                "url": "https://ssl.gstatic.com/gb/images/qi2_00ed8ca1.png",
-                "id": "30168.6",
-                "startTime": 1032.64,
-                "endTime": 1824.296,
                 "activityId": "Networking_3",
-                "fromScript": "https://www.google.com/",
+                "startTime": 48.45,
+                "id": "1000023161.22",
                 "mimeType": "image/png",
+                "endTime": 61.184,
+                "transferSize": 646,
+                "url": "https://www.gstatic.com/images/branding/googlemic/2x/googlemic_color_24dp.png",
+                "fromScript": "Null",
+                "responseReceivedTime": 60.99,
                 "statusCode": 200
             }
         ],
-        "id": "https://ssl.gstatic.com/gb/images/qi2_00ed8ca1.png"
+        "id": "https://www.gstatic.com/images/branding/googlemic/2x/googlemic_color_24dp.png"
     },
     {
         "objs": [
             {
-                "transferSize": 21808,
-                "responseReceivedTime": 1899.09,
-                "url": "https://www.gstatic.com/og/_/js/k=og.mob.en_US.73RRFfgfcXQ.O/rt=j/m=md/exm=mih,mab,meb/d=1/ed=1/rs=AA2YrTv6Wz7W_HWTuLSaqAeSnm4s3Llc-g",
-                "id": "30168.8",
-                "startTime": 1768.046,
-                "endTime": 1917.402,
                 "activityId": "Networking_4",
-                "fromScript": "https://www.google.com/",
-                "mimeType": "text/javascript",
+                "startTime": 66.659,
+                "id": "1000023161.23",
+                "mimeType": "image/webp",
+                "endTime": 134.222,
+                "transferSize": 4396,
+                "url": "https://www.google.com/images/nav_logo299.webp",
+                "fromScript": "Null",
+                "responseReceivedTime": 134.017,
                 "statusCode": 200
-            },
-            {
-                "url": "https://www.gstatic.com/og/_/js/k=og.mob.en_US.73RRFfgfcXQ.O/rt=j/m=md/exm=mih,mab,meb/d=1/ed=1/rs=AA2YrTv6Wz7W_HWTuLSaqAeSnm4s3Llc-g",
-                "startTime": 1983.309,
-                "endTime": 2050.5,
-                "activityId": "Scripting_9"
             }
         ],
-        "id": "https://www.gstatic.com/og/_/js/k=og.mob.en_US.73RRFfgfcXQ.O/rt=j/m=md/exm=mih,mab,meb/d=1/ed=1/rs=AA2YrTv6Wz7W_HWTuLSaqAeSnm4s3Llc-g"
+        "id": "https://www.google.com/images/nav_logo299.webp"
     },
     {
         "objs": [
             {
-                "name": "Layout",
-                "startTime": 1062.859,
-                "endTime": 1342.187,
-                "activityId": "Rendering_2"
+                "activityId": "Networking_5",
+                "startTime": 67.274,
+                "id": "1000023161.24",
+                "mimeType": "text/javascript",
+                "endTime": 81.581,
+                "transferSize": 49863,
+                "url": "https://www.google.com/xjs/_/js/k=xjs.s.ja.IzsvYYzsEz0.O/m=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,TbaHGc,Y33vzc,cdos,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,xpltpb,yQ43ff,d,csi/am=AABgEdi7AyH_XwEAdgEAgbvABhZIEBpWBwg/d=1/dg=2/rs=ACT90oGxyeNEEIjMSZoniSPli15HOauNMQ",
+                "fromScript": "https://www.google.com/",
+                "responseReceivedTime": 72.576,
+                "statusCode": 200
             },
             {
-                "name": "Layout",
-                "startTime": 1362.987,
-                "endTime": 1363.415,
-                "activityId": "Rendering_3"
+                "startTime": 91.399,
+                "endTime": 115.135,
+                "activityId": "Scripting_7",
+                "url": "https://www.google.com/xjs/_/js/k=xjs.s.ja.IzsvYYzsEz0.O/m=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,TbaHGc,Y33vzc,cdos,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,xpltpb,yQ43ff,d,csi/am=AABgEdi7AyH_XwEAdgEAgbvABhZIEBpWBwg/d=1/dg=2/rs=ACT90oGxyeNEEIjMSZoniSPli15HOauNMQ"
+            }
+        ],
+        "id": "https://www.google.com/xjs/_/js/k=xjs.s.ja.IzsvYYzsEz0.O/m=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,TbaHGc,Y33vzc,cdos,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,xpltpb,yQ43ff,d,csi/am=AABgEdi7AyH_XwEAdgEAgbvABhZIEBpWBwg/d=1/dg=2/rs=ACT90oGxyeNEEIjMSZoniSPli15HOauNMQ"
+    },
+    {
+        "objs": [
+            {
+                "activityId": "Networking_6",
+                "startTime": 80.859,
+                "id": "1000023161.25",
+                "mimeType": "text/html",
+                "endTime": 134.675,
+                "url": "https://www.google.com/gen_204?s=webhp&t=aft&atyp=csi&ei=aszsXPuAKLHfmAW0-4egDA&rt=wsrt.102,aft.88,prt.71&ima=1&imn=1",
+                "fromScript": "https://www.google.com/",
+                "responseReceivedTime": 134.565,
+                "statusCode": 204
+            }
+        ],
+        "id": "https://www.google.com/gen_204?s=webhp&t=aft&atyp=csi&ei=aszsXPuAKLHfmAW0-4egDA&rt=wsrt.102,aft.88,prt.71&ima=1&imn=1"
+    },
+    {
+        "objs": [
+            {
+                "activityId": "Networking_7",
+                "startTime": 130.444,
+                "id": "1000023161.26",
+                "mimeType": "text/javascript",
+                "endTime": 135.975,
+                "transferSize": 57353,
+                "url": "https://www.google.com/xjs/_/js/k=xjs.s.ja.IzsvYYzsEz0.O/am=AABgEdi7AyH_XwEAdgEAgbvABhZIEBpWBwg/d=1/exm=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,TbaHGc,Y33vzc,cdos,csi,d,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,xpltpb,yQ43ff/ed=1/dg=2/rs=ACT90oGxyeNEEIjMSZoniSPli15HOauNMQ/m=WgDvvc,aa,abd,async,dvl,fEVMic,foot,lu,m,mUpTid,mu,sb_wiz,sf,sonic,spch,xz7cCd?xjs=s1",
+                "fromScript": "https://www.google.com/xjs/_/js/k=xjs.s.ja.IzsvYYzsEz0.O/m=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,TbaHGc,Y33vzc,cdos,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,xpltpb,yQ43ff,d,csi/am=AABgEdi7AyH_XwEAdgEAgbvABhZIEBpWBwg/d=1/dg=2/rs=ACT90oGxyeNEEIjMSZoniSPli15HOauNMQ",
+                "responseReceivedTime": 135.54,
+                "statusCode": 200
             },
             {
-                "name": "Layout",
-                "startTime": 1422.642,
-                "endTime": 1423.134,
-                "activityId": "Rendering_4"
+                "startTime": 140.567,
+                "endTime": 150.742,
+                "activityId": "Scripting_8",
+                "url": "https://www.google.com/xjs/_/js/k=xjs.s.ja.IzsvYYzsEz0.O/am=AABgEdi7AyH_XwEAdgEAgbvABhZIEBpWBwg/d=1/exm=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,TbaHGc,Y33vzc,cdos,csi,d,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,xpltpb,yQ43ff/ed=1/dg=2/rs=ACT90oGxyeNEEIjMSZoniSPli15HOauNMQ/m=WgDvvc,aa,abd,async,dvl,fEVMic,foot,lu,m,mUpTid,mu,sb_wiz,sf,sonic,spch,xz7cCd?xjs=s1"
+            }
+        ],
+        "id": "https://www.google.com/xjs/_/js/k=xjs.s.ja.IzsvYYzsEz0.O/am=AABgEdi7AyH_XwEAdgEAgbvABhZIEBpWBwg/d=1/exm=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,TbaHGc,Y33vzc,cdos,csi,d,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,xpltpb,yQ43ff/ed=1/dg=2/rs=ACT90oGxyeNEEIjMSZoniSPli15HOauNMQ/m=WgDvvc,aa,abd,async,dvl,fEVMic,foot,lu,m,mUpTid,mu,sb_wiz,sf,sonic,spch,xz7cCd?xjs=s1"
+    },
+    {
+        "objs": [
+            {
+                "startTime": 42.28,
+                "endTime": 42.39,
+                "activityId": "Rendering_0",
+                "name": "Layout"
+            },
+            {
+                "startTime": 48.917,
+                "endTime": 49.413,
+                "activityId": "Rendering_1",
+                "name": "Layout"
+            },
+            {
+                "startTime": 49.461,
+                "endTime": 49.708,
+                "activityId": "Rendering_2",
+                "name": "UpdateLayerTree"
+            },
+            {
+                "startTime": 63.712,
+                "endTime": 63.931,
+                "activityId": "Rendering_3",
+                "name": "Layout"
+            },
+            {
+                "startTime": 70.938,
+                "endTime": 71.10000000000001,
+                "activityId": "Rendering_4",
+                "name": "UpdateLayerTree"
+            },
+            {
+                "startTime": 87.587,
+                "endTime": 87.63600000000001,
+                "activityId": "Rendering_5",
+                "name": "UpdateLayerTree"
+            },
+            {
+                "startTime": 133.733,
+                "endTime": 133.748,
+                "activityId": "Rendering_6",
+                "name": "UpdateLayerTree"
+            },
+            {
+                "startTime": 150.941,
+                "endTime": 150.954,
+                "activityId": "Rendering_7",
+                "name": "UpdateLayerTree"
             }
         ],
         "id": "Rendering"
     },
     {
-        "objs": [],
+        "objs": [
+            {
+                "startTime": 26.663,
+                "endTime": 26.92,
+                "activityId": "Painting_4",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 39.751,
+                "endTime": 39.854,
+                "activityId": "Painting_5",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 49.719,
+                "endTime": 49.851,
+                "activityId": "Painting_6",
+                "name": "Paint"
+            },
+            {
+                "startTime": 49.867,
+                "endTime": 49.913999999999994,
+                "activityId": "Painting_7",
+                "name": "Paint"
+            },
+            {
+                "startTime": 50.11,
+                "endTime": 50.257,
+                "activityId": "Painting_8",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 70.027,
+                "endTime": 70.096,
+                "activityId": "Painting_9",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 71.109,
+                "endTime": 71.214,
+                "activityId": "Painting_10",
+                "name": "Paint"
+            },
+            {
+                "startTime": 71.23,
+                "endTime": 71.253,
+                "activityId": "Painting_11",
+                "name": "Paint"
+            },
+            {
+                "startTime": 71.429,
+                "endTime": 71.561,
+                "activityId": "Painting_12",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 87.648,
+                "endTime": 87.71499999999999,
+                "activityId": "Painting_13",
+                "name": "Paint"
+            },
+            {
+                "startTime": 87.775,
+                "endTime": 87.865,
+                "activityId": "Painting_14",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 88.056,
+                "endTime": 88.198,
+                "activityId": "Painting_15",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 133.781,
+                "endTime": 133.852,
+                "activityId": "Painting_16",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 150.963,
+                "endTime": 150.973,
+                "activityId": "Painting_17",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            },
+            {
+                "startTime": 180.83,
+                "endTime": 180.973,
+                "activityId": "Painting_18",
+                "layerTreeId": 1,
+                "name": "CompositeLayers"
+            }
+        ],
         "id": "Painting"
     },
     {
         "objs": [
             {
                 "a1": "Networking_0",
-                "time": -1,
-                "a2": "Loading_1"
+                "a2": "Loading_0",
+                "time": 22.86
+            },
+            {
+                "a1": "Networking_0",
+                "a2": "Scripting_0",
+                "time": 23.934
+            },
+            {
+                "a1": "Loading_0",
+                "a2": "Networking_1",
+                "time": -1
+            },
+            {
+                "a1": "Networking_0",
+                "a2": "Loading_1",
+                "time": 37.511
+            },
+            {
+                "a1": "Scripting_0",
+                "a2": "Loading_1",
+                "time": -1
+            },
+            {
+                "a1": "Loading_0",
+                "a2": "Loading_1",
+                "time": -1
+            },
+            {
+                "a1": "Networking_0",
+                "a2": "Scripting_1",
+                "time": 41.258
             },
             {
                 "a1": "Loading_1",
-                "time": 415.698,
-                "a2": "Networking_1"
+                "a2": "Networking_2",
+                "time": -1
+            },
+            {
+                "a1": "Loading_1",
+                "a2": "Networking_3",
+                "time": -1
             },
             {
                 "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_0"
-            },
-            {
-                "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_1"
-            },
-            {
-                "a1": "Networking_0",
-                "time": -1,
-                "a2": "Loading_2"
+                "a2": "Loading_2",
+                "time": -1
             },
             {
                 "a1": "Scripting_1",
-                "time": -1,
-                "a2": "Loading_2"
+                "a2": "Loading_2",
+                "time": -1
             },
             {
                 "a1": "Loading_1",
-                "time": -1,
-                "a2": "Loading_2"
+                "a2": "Loading_2",
+                "time": -1
             },
             {
                 "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_2"
-            },
-            {
-                "a1": "Loading_2",
-                "time": 900.327,
-                "a2": "Networking_2"
+                "a2": "Scripting_2",
+                "time": -1
             },
             {
                 "a1": "Networking_0",
-                "time": -1,
-                "a2": "Loading_3"
+                "a2": "Loading_3",
+                "time": -1
             },
             {
                 "a1": "Scripting_2",
-                "time": -1,
-                "a2": "Loading_3"
+                "a2": "Loading_3",
+                "time": -1
             },
             {
                 "a1": "Loading_2",
-                "time": -1,
-                "a2": "Loading_3"
+                "a2": "Loading_3",
+                "time": -1
             },
             {
                 "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_3"
-            },
-            {
-                "a1": "Scripting_2",
-                "time": -1,
-                "a2": "Networking_3"
+                "a2": "Scripting_3",
+                "time": -1
             },
             {
                 "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_4"
+                "a2": "Scripting_4",
+                "time": -1
             },
             {
                 "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_5"
+                "a2": "Loading_4",
+                "time": -1
             },
             {
-                "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_6"
-            },
-            {
-                "a1": "Scripting_6",
-                "time": 1768.046,
-                "a2": "Networking_4"
-            },
-            {
-                "a1": "Networking_0",
-                "time": -1,
-                "a2": "Loading_4"
-            },
-            {
-                "a1": "Scripting_6",
-                "time": -1,
-                "a2": "Loading_4"
+                "a1": "Scripting_4",
+                "a2": "Loading_4",
+                "time": -1
             },
             {
                 "a1": "Loading_3",
-                "time": -1,
-                "a2": "Loading_4"
+                "a2": "Loading_4",
+                "time": -1
             },
             {
                 "a1": "Networking_0",
-                "time": -1,
-                "a2": "Loading_5"
+                "a2": "Scripting_5",
+                "time": -1
             },
             {
-                "a1": "Scripting_6",
-                "time": -1,
-                "a2": "Loading_5"
+                "a1": "Networking_0",
+                "a2": "Scripting_6",
+                "time": -1
             },
             {
                 "a1": "Loading_4",
-                "time": -1,
-                "a2": "Loading_5"
+                "a2": "Networking_4",
+                "time": 66.659
             },
             {
-                "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_7"
+                "a1": "Scripting_6",
+                "a2": "Networking_5",
+                "time": -1
             },
             {
-                "a1": "Networking_0",
-                "time": -1,
-                "a2": "Scripting_8"
+                "a1": "Scripting_6",
+                "a2": "Networking_6",
+                "time": -1
             },
             {
-                "a1": "Networking_4",
-                "time": -1,
-                "a2": "Scripting_9"
+                "a1": "Networking_5",
+                "a2": "Scripting_7",
+                "time": -1
+            },
+            {
+                "a1": "Scripting_7",
+                "a2": "Networking_7",
+                "time": -1
+            },
+            {
+                "a1": "Networking_7",
+                "a2": "Scripting_8",
+                "time": -1
             }
         ],
         "id": "Deps"
     },
     {
-        "ssl_sockets_bytes_out": 0,
-        "dns": {},
-        "sockets_bytes_out": 12664,
-        "sockets_bytes_in": 375269,
-        "sockets": {
-            "0x20bf": {
-                "bytes_out": 1082,
-                "bytes_in": 2083
-            },
-            "0x20ba": {
-                "bytes_out": 3598,
-                "bytes_in": 327993
-            },
-            "0x20b4": {
-                "bytes_out": 1082,
-                "bytes_in": 2083
-            },
-            "0x20d4": {
-                "bytes_out": 1084,
-                "bytes_in": 3072
-            },
-            "0x20cf": {
-                "bytes_out": 1084,
-                "bytes_in": 3072
-            },
-            "0x20c4": {
-                "bytes_out": 1082,
-                "bytes_in": 2083
-            },
-            "0x20eb": {
-                "bytes_out": 1536,
-                "bytes_in": 6845
-            },
-            "0x20ca": {
-                "bytes_out": 2116,
-                "bytes_in": 28038
-            }
-        },
-        "id": "Netlog",
-        "dnsTime": -1,
-        "ssl_sockets_bytes_in": 0
-    },
-    {
+        "computationTime": 80.31,
+        "networkingTime": 19.84,
         "criticalPath": [
             "Networking_0",
             "Scripting_6",
-            "Networking_4",
-            "Scripting_9"
-        ],
-        "networkingTime": 149.36,
-        "computationTime": 680.04
+            "Networking_5",
+            "Scripting_7",
+            "Networking_7",
+            "Scripting_8"
+        ]
     }
 ]

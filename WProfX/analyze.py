@@ -11,8 +11,8 @@ coloredlogs.install(level='INFO')
 
 #_command = '/home/jnejati/PLTSpeed/analysis/trace_parser.py'
 #logging.getLogger().setLevel(logging.INFO)
-_experiment_dir = '/home/zhaoxin/YPTN_Profiling_Server/WProfX/desktop_livetest'
-_wprofx_graphs = '/home/zhaoxin/YPTN_Profiling_Server/WProfX/graphs'
+_experiment_dir = '/home/zhaoxinwu/workspace/YPTN_Profiling_Server/WProfX/desktop_livetest'
+_wprofx_graphs = '/home/zhaoxinwu/workspace/YPTN_Profiling_Server/WProfX/graphs'
 _all_dirs = os.listdir(_experiment_dir)
 _all_dirs.sort()
 _exclude_list = []

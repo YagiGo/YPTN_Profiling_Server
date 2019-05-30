@@ -79,7 +79,7 @@ def main():
                 time.sleep(5)
                 try:
                     #_node_cmd = ['node', 'chrome_launcher.js', _site,  _trace_file, _summary_file, _screenshot_file, _tcpdump_pid]
-                    _node_cmd = ['/home/zhaoxin/.nvm/versions/node/v8.9.4/bin/node', '/home/zhaoxin/workspace/YPTN/WProfX/chrome_launcher.js', _site,  _trace_file, _summary_file, _screenshot_file]
+                    _node_cmd = ['/home/zhaoxinwu/.nvm/versions/node/v8.10.0/bin/node', '/home/zhaoxinwu/workspace/YPTN_Profiling_Server/WProfX/chrome_launcher.js', _site,  _trace_file, _summary_file, _screenshot_file]
                     #_cmd = _perf_cmd + _node_cmd
                     _cmd =  _node_cmd
                     subprocess.call(_cmd, timeout = 60)

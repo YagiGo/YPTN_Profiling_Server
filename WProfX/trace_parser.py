@@ -210,17 +210,17 @@ class Trace():
         _tmp_painting = {'id': 'Painting', 'objs': _tmp_p_list}
         _tmp_deps = {'id': 'Deps', 'objs': self.deps}
 
-        _tmp_netlog = {'id': 'Netlog', 'dns': self.netlog['dns'], 'sockets': self.netlog['sockets'],
-                       'dnsTime': self.netlog['dnsTime'], 'sockets_bytes_in': self.netlog['bytes_in'],
-                       'sockets_bytes_out': self.netlog['bytes_out'],
-                       'ssl_sockets_bytes_out': self.netlog['ssl_bytes_out'],
-                       'ssl_sockets_bytes_in': self.netlog['ssl_bytes_in']}
+        #_tmp_netlog = {'id': 'Netlog', 'dns': self.netlog['dns'], 'sockets': self.netlog['sockets'],
+        #               'dnsTime': self.netlog['dnsTime'], 'sockets_bytes_in': self.netlog['bytes_in'],
+        #               'sockets_bytes_out': self.netlog['bytes_out'],
+        #               'ssl_sockets_bytes_out': self.netlog['ssl_bytes_out'],
+        #               'ssl_sockets_bytes_in': self.netlog['ssl_bytes_in']}
         _tmp_critical_path = {'criticalPath': self.critical_path, 'networkingTime': self.networkingTime, 'computationTime': self.computationTime}
 
         self.output.append(_tmp_rendering)
         self.output.append(_tmp_painting)
         self.output.append(_tmp_deps)
-        self.output.append(_tmp_netlog)
+        # self.output.append(_tmp_netlog)
         self.output.append(_tmp_critical_path)
         if mode == 'main':
             self.WriteJson(file, self.output)
