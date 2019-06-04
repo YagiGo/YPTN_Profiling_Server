@@ -5,18 +5,20 @@ from collections import OrderedDict
 import plotly
 import plotly.plotly as py
 import plotly.graph_objs as go
+import pandas as pd
 import matplotlib.pyplot as plt
 import networkx as nx
 from collections import OrderedDict
 from igraph import *
 ANALYSIS_FILE_PATH = os.path.abspath(os.path.join(os.curdir, "desktop_livetest"))
-
+IMAGE_SAVE_PATH = os.path.abspath(os.path.join(os.curdir, "DAG_CUT_DEMO"))
 class DependencyTreeNode:
     def __init__(self, activityID, detail):
         self.activityID = activityID
         self.ancestors = []
         self.children = []
         self.parent = None
+        self.priority = -1
         self.detail = detail
 
     def addChild(self, childNode):
@@ -27,6 +29,7 @@ class DependencyTreeNode:
             self.ancestors.append(ancestorNode)
         else:
             print("This guy has multiple parents")
+
 
 
 
@@ -151,9 +154,9 @@ class DependencyTree:
             # parent -> thisNode
             nodes.append(treeNode.activityID)
             for ancestor in treeNode.ancestors:
-                edges.append(tuple([ancestor, treeNode.activityID]))
+                edges.append(tuple([ancestor[0] + "_" + ancestor[-1], treeNode.activityID[0] + "_" + treeNode.activityID[-1]]))
             for child in treeNode.children:
-                edges.append(tuple([treeNode.activityID, child]))
+                edges.append(tuple([treeNode.activityID[0] + "_" + treeNode.activityID[-1], child[0] + "_" + child[-1]]))
         # sort the nodes base on task and task no
         # Network->Scripting->Loading
         networkingTask = []
@@ -179,36 +182,73 @@ class DependencyTree:
             nodes.append("Loading" + "_" + str(loadingTask[index]))
         for index in range(len(scriptingTask)):
             nodes.append("Scripting" + "_" + str(scriptingTask[index]))
-        return nodes, edges
+
+        return [node[0]+"_"+node[-1] for node in nodes], edges
 
     def showTheTree(self):
         for treeNode in self.dependencyTreeNodes:
-            print("ActivityID:%s", treeNode.activityID)
+            print("ActivityID:", treeNode.activityID)
             print("Ancestors:{}".format(treeNode.ancestors))
             print("Children:{}".format(treeNode.children))
+            print("Detail:{}".format(str(treeNode.detail)))
             print("+=========================================================================+")
 
+    def getOverallTimeConsumption(self, threshold):
+        # Get the total time consumption for the node and its children/grandchildren
+        overallTimeConsumption = 0
+        allTreeNodeNames = [treeNode.activityID for treeNode in self.dependencyTreeNodes]
+        # TODO: sort nodes based on priority/cost efficiency
+        cut = []
+        for treeNode in self.dependencyTreeNodes:
+            if treeNode.activityID in allTreeNodeNames:
+                startTime = treeNode.detail["startTime"]
+                endTime = treeNode.detail["endTime"]
+                timeConsumption = endTime - startTime
+                if overallTimeConsumption >= threshold:
+                    break
+                else:
+                    overallTimeConsumption += timeConsumption
+                    cut.append(treeNode.activityID)
+                    allTreeNodeNames.remove(treeNode.activityID)
+                for child in treeNode.children:
+                    childNode = self.getNode(child)
+                    startTime = childNode.detail["startTime"]
+                    endTime = childNode.detail["endTime"]
+                    timeConsumption = endTime - startTime
+                    if overallTimeConsumption >= threshold:
+                        break
+                    else:
+                        overallTimeConsumption += timeConsumption
+                        cut.append(child)
+                        allTreeNodeNames.remove(child)
+        print("Overall Time Consumption:", overallTimeConsumption)
+        print("DAG Cut:", cut)
+        print("TASK NUMBER: ", len(cut))
+        return cut
 
 
-    def drawDependencyTree(self):
+    def drawDependencyTree(self, currentSite, threshold):
         plotly.tools.set_credentials_file(username='sipuora', api_key='1CUcYmEgufGedLqAbMHB')
         # Draw the tree for Demo purpose
         nr_vertices = len(self.dependencyTreeNodes)  # how many nodes are there
         dependencyTree = self.dependencyTreeNodes
-        nodes, edges = self.prepareDrawingTree()
-        G = Graph.Tree(nr_vertices, 2)  # 2 stands for children number
+        DAGCut = self.getOverallTimeConsumption(threshold)
+        DAGCut = [node[0] + "_" + node[-1] for node in DAGCut]
+        nodes_ori, edges = self.prepareDrawingTree()
+        print(len(nodes_ori))
+        nodes = [node for node in nodes_ori if node not in DAGCut]
+        print(len(nodes))
+        print(edges)
+        # G = Graph.Tree(nr_vertices, 2)  # 2 stands for children number
 
         # print(nodes, edges)
         v_label = list(map(lambda node: node.activityID, self.dependencyTreeNodes))
         # print(v_label)
 
-        # G = nx.DiGraph() # Create Directed Graphs
-        # G.add_nodes_from(nodes)
-        # G.add_edges_from(edges)
+
 
         dmin=5
         # pos=nx.planar_layout(G)
-        # pos = nx.get_node_attributes(G, 'pos')
         ncenter=0
         # for n in pos:
         #     x,y = pos[n]
@@ -216,14 +256,45 @@ class DependencyTree:
         #     if d < dmin:
         #         ncenter = n
         #         dmin = d
+
+        ###############################################################################
         # Add edges as disconnected lines in a single trace and nodes as a scatter trace
         # Need to create a layout when doing
         # separate calls to draw nodes and edges
-        # nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'),
-        #                        node_color='red', node_size=500)
-        # nx.draw_networkx_labels(G, pos)
-        # nx.draw_networkx_edges(G, pos, edgelist=edges, arrows=False)
-        # plt.show()
+
+
+        G = nx.DiGraph() # Create Directed Graphs
+        G.add_nodes_from(nodes_ori)
+        G.add_edges_from(edges)
+
+        # modify gaps between nodes
+        df = pd.DataFrame(index=G.nodes(), columns=G.nodes())
+        for row, data in nx.shortest_path_length(G):
+            for col, dist in data.items():
+                df.loc[row, col] = dist
+
+        df = df.fillna(df.max().max() * 0.6)
+
+        # pos = nx.kamada_kawai_layout(G, dist=df.to_dict())
+        pos = {'L_1':[0.45323407, 0.38300876], 'S_8': [-0.1200502 ,  0.89004281], 'N_1': [ 0.92090981, -0.06400148], 'N_2':[0.71877908, 0.5896263 ], 'S_6': [-0.47512574,  0.07605371], 'N_3':[0.35466946, 0.78284009], 'N_5':[-0.85383971,  0.12130521], 'N_7':[-0.46770779,  0.76354273], 'S_7':[-0.75269343,  0.48778184], 'L_2':[ 0.41769869, -0.15407188], 'S_4':[-0.54087218, -0.51841815], 'S_0':[0.10216507, 0.38916522], 'S_2':[-0.21226628, -0.47335229], 'L_3':[ 0.14853618, -0.59285619], 'N_4': [-0.05602928, -1], 'S_3':[-0.65497334, -0.24656378], 'N_6':[-0.38828246,  0.44194564], 'N_0': [0.00702252, -0.17041745], 'S_5': [ 0.44685786, -0.6439212], 'L_4': [-0.29849128, -0.79035], 'S_1': [ 0.62130693, -0.39901267], 'L_0': [0.62915201, 0.1276528 ]}
+
+        print(pos)
+        nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'),
+                               node_color='red', node_size=1200, nodelist=nodes)
+        nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'),
+                               node_color='green', node_size=1200, nodelist=DAGCut)
+        nx.draw_networkx_labels(G, pos)
+        nx.draw_networkx_edges(G, pos, edgelist=edges, width=3, arrowstyle='-|>')
+        plt.title('Google Dependency Graph Cut Threshold={}ms'.format(threshold), fontsize='large', fontweight = 'bold')
+        # save image
+        filename = currentSite + " " + "threshold " + str(threshold)
+        filePath = os.path.abspath(os.path.join(IMAGE_SAVE_PATH, filename))
+        plt.savefig(filePath, format="eps", dpi=1000)
+
+        plt.show()
+
+        ###############################################################################
+
         # trace info
         # edge_trace = go.Scatter(
         #     x=[],
@@ -297,79 +368,79 @@ class DependencyTree:
 #
         # py.iplot(fig, filename='networkx')
 
-        lay = G.layout('rt')
-        position = {k : lay[k] for k in range(nr_vertices)}
-        print(position)
-        Y = [lay[k][1] for k in range(nr_vertices)]
-        M = max(Y)
-
-        es = EdgeSeq(G) # sequence of edges
-        E = edges # list of edges
-        L = len(position)
-        Xn = [position[k][0] for k in range(L)]
-        Yn = [2 * M - position[k][1] for k in range(L)]
-        Xe = []
-        Ye = []
-
-        for edge in E:
-            Xe += [position[nodes.index(edge[0])][0], position[nodes.index(edge[1])][0], None]
-            Ye += [2 * M - position[nodes.index(edge[0])][1], 2 * M - position[nodes.index(edge[1])][1], None]
+        # lay = G.layout('rt')
+        # position = {k : lay[k] for k in range(nr_vertices)}
+        # print(position)
+        # Y = [lay[k][1] for k in range(nr_vertices)]
+        # M = max(Y)
 #
-        labels = v_label  # TODO: change the label later
-        details_text = list(map(lambda node: str(node.detail), self.dependencyTreeNodes))
+        # es = EdgeSeq(G) # sequence of edges
+        # E = edges # list of edges
+        # L = len(position)
+        # Xn = [position[k][0] for k in range(L)]
+        # Yn = [2 * M - position[k][1] for k in range(L)]
+        # Xe = []
+        # Ye = []
 #
-        # create Plotly Traces
-        lines = go.Scatter(x=Xe,
-                           y=Ye,
-                           mode='lines',
-                           line=dict(color='rgb(210,210,210)', width=1),
-                           hoverinfo='none'
-                           )
-        dots = go.Scatter(x=Xn,
-                          y=Yn,
-                          mode='markers',
-                          name='',
-                          marker=dict(symbol='dot',
-                                      size=70,
-                                      color='#6175c1',  # '#DB4551',
-                                      line=dict(color='rgb(50,50,50)', width=1)
-                                      ),
-                          text="None",
-                          hoverinfo='text',
-                          opacity=2.8
-                          )
-
-        # create annotations
-        if len(v_label) != L:
-            raise ValueError('The lists pos and text must have the same len')
-        annotations = go.Annotations()
-        for k in range(L):
-            annotations.append(
-                go.Annotation(
-                    text=labels[k],  # or replace labels with a different list for the text within the circle
-                    x=position[k][0], y=2 * M - position[k][1],
-                    xref='x1', yref='y1',
-                    font=dict(color='rgb(250,250,250)', size=10),
-                    showarrow=False))
-        axis = dict(showline=False,  # hide axis line, grid, ticklabels and  title
-                    zeroline=False,
-                    showgrid=False,
-                    showticklabels=False,
-                    )
-        layout = dict(title='Dependency Tree',
-                      annotations=annotations,
-                      font=dict(size=12),
-                      showlegend=False,
-                      xaxis=go.XAxis(axis),
-                      yaxis=go.YAxis(axis),
-                      margin=dict(l=40, r=40, b=85, t=100),
-                      hovermode='closest',
-                      plot_bgcolor='rgb(248,248,248)'
-                      )
-        data = go.Data([lines, dots])
-        fig = dict(data=data, layout=layout)
-        fig['layout'].update(annotations=annotations)
-        py.iplot(fig, filename='Tree-Reingold-Tilf')
+        # for edge in E:
+        #     Xe += [position[nodes.index(edge[0])][0], position[nodes.index(edge[1])][0], None]
+        #     Ye += [2 * M - position[nodes.index(edge[0])][1], 2 * M - position[nodes.index(edge[1])][1], None]
+##
+        # labels = v_label  # TODO: change the label later
+        # details_text = list(map(lambda node: str(node.detail), self.dependencyTreeNodes))
+##
+        # # create Plotly Traces
+        # lines = go.Scatter(x=Xe,
+        #                    y=Ye,
+        #                    mode='lines',
+        #                    line=dict(color='rgb(210,210,210)', width=1),
+        #                    hoverinfo='none'
+        #                    )
+        # dots = go.Scatter(x=Xn,
+        #                   y=Yn,
+        #                   mode='markers',
+        #                   name='',
+        #                   marker=dict(symbol='dot',
+        #                               size=70,
+        #                               color='#6175c1',  # '#DB4551',
+        #                               line=dict(color='rgb(50,50,50)', width=1)
+        #                               ),
+        #                   text="None",
+        #                   hoverinfo='text',
+        #                   opacity=2.8
+        #                   )
+#
+        # # create annotations
+        # if len(v_label) != L:
+        #     raise ValueError('The lists pos and text must have the same len')
+        # annotations = go.Annotations()
+        # for k in range(L):
+        #     annotations.append(
+        #         go.Annotation(
+        #             text=labels[k],  # or replace labels with a different list for the text within the circle
+        #             x=position[k][0], y=2 * M - position[k][1],
+        #             xref='x1', yref='y1',
+        #             font=dict(color='rgb(250,250,250)', size=10),
+        #             showarrow=False))
+        # axis = dict(showline=False,  # hide axis line, grid, ticklabels and  title
+        #             zeroline=False,
+        #             showgrid=False,
+        #             showticklabels=False,
+        #             )
+        # layout = dict(title='Dependency Tree',
+        #               annotations=annotations,
+        #               font=dict(size=12),
+        #               showlegend=False,
+        #               xaxis=go.XAxis(axis),
+        #               yaxis=go.YAxis(axis),
+        #               margin=dict(l=40, r=40, b=85, t=100),
+        #               hovermode='closest',
+        #               plot_bgcolor='rgb(248,248,248)'
+        #               )
+        # data = go.Data([lines, dots])
+        # fig = dict(data=data, layout=layout)
+        # fig['layout'].update(annotations=annotations)
+        # py.iplot(fig, filename='Tree-Reingold-Tilf')
 
 
 GoogleAnalysis = DependencyAnalysis(url="www.google.com", testNo="0")
@@ -386,4 +457,4 @@ if __name__ == "__main__":
     dependencyTree = DependencyTree(dependencyTreeNodes)
     dependencyTree.trimTree()
     dependencyTree.showTheTree()
-    dependencyTree.drawDependencyTree()
+    dependencyTree.drawDependencyTree(currentSite="Google", threshold=350)
