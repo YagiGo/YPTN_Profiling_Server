@@ -10,6 +10,24 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from collections import OrderedDict
 from igraph import *
+from pymongo import MongoClient
+
+
+
+class DBInteractModule:
+    def __init__(self, DB_ADDRESS="192.168.1.4", DB_PORT=27017):
+        self.DB_ADDR = DB_ADDRESS
+        self.DB_PORT = DB_PORT
+        self.client = MongoClient(self.DB_ADDR, self.DB_PORT)
+
+    def addNodes(self, dbName, collectionName, nodeObject):
+        rawDataCollectoin = self.client[dbName][collectionName]
+        rawDataCollectoin.insert_one(nodeObject)
+
+    def addEdges(self, dbName, collectionName, edgeObject):
+        edgeDataCollection = self.client[dbName][collectionName]
+        edgeDataCollection.insert_one(edgeObject)
+
 ANALYSIS_FILE_PATH = os.path.abspath(os.path.join(os.curdir, "desktop_livetest"))
 IMAGE_SAVE_PATH = os.path.abspath(os.path.join(os.curdir, "DAG_CUT_DEMO"))
 class DependencyTreeNode:
@@ -63,6 +81,11 @@ class DependencyAnalysis:
                             criticalPathInfo[currTaskID] = obj
         return criticalPathInfo
 
+    def getCriticalPathList(self):
+        for item in self.profiled_data:
+            if "criticalPath" in item:
+                return item["criticalPath"]
+
     def getDependedElements(self):
         # Get a list that contains all the files that have dependency on others
         finalResutl = []
@@ -106,8 +129,9 @@ class DependencyAnalysis:
         return dependencyTreeNodes
 
 class DependencyTree:
-    def __init__(self, dependencyTreeNodes):
+    def __init__(self, dependencyTreeNodes, criticalPathNodes):
         self.dependencyTreeNodes = dependencyTreeNodes
+        self.criticalPathNodes = criticalPathNodes
         self.dependencyTree = None
 
     def getNode(self, activityId):
@@ -237,6 +261,7 @@ class DependencyTree:
         nodes_ori, edges = self.prepareDrawingTree()
         print(len(nodes_ori))
         nodes = [node for node in nodes_ori if node not in DAGCut]
+
         print(len(nodes))
         print(edges)
         # G = Graph.Tree(nr_vertices, 2)  # 2 stands for children number
@@ -289,7 +314,7 @@ class DependencyTree:
         # save image
         filename = currentSite + " " + "threshold " + str(threshold)
         filePath = os.path.abspath(os.path.join(IMAGE_SAVE_PATH, filename))
-        plt.savefig(filePath, format="eps", dpi=1000)
+        plt.savefig(filePath, format="png", dpi=1000)
 
         plt.show()
 
@@ -454,7 +479,10 @@ if __name__ == "__main__":
     # dependencyTree = GoogleAnalysis.getDependencyTree()
     # print(dependencyTree)
     dependencyTreeNodes = GoogleAnalysis.getDependencyTreeNodes()
-    dependencyTree = DependencyTree(dependencyTreeNodes)
+    criticalPathNodes = GoogleAnalysis.getCriticalPathList()
+    dependencyTree = DependencyTree(dependencyTreeNodes, criticalPathNodes)
     dependencyTree.trimTree()
     dependencyTree.showTheTree()
-    dependencyTree.drawDependencyTree(currentSite="Google", threshold=350)
+    thresholds = [0,50,100,150,200,250,300,350,400,450,500]
+    for threshold in thresholds:
+        dependencyTree.drawDependencyTree(currentSite="Google", threshold=threshold)
