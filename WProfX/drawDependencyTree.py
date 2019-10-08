@@ -1,6 +1,6 @@
 # draw the dependency tree base on the analysis json
 # TODO: Change to DB access when ready
-import os,json
+import os,json,csv
 from collections import OrderedDict
 import plotly
 import plotly.plotly as py
@@ -11,25 +11,47 @@ import networkx as nx
 from collections import OrderedDict
 from igraph import *
 from pymongo import MongoClient
-
+import time, datetime
+ANALYSIS_FILE_PATH = os.path.abspath(os.path.join(os.curdir, "graphs"))
+PRIORITY_ANALYSIS_FILE_PATH = os.path.abspath(os.path.join(os.curdir, "priority_analysis"))
+IMAGE_SAVE_PATH = os.path.abspath(os.path.join(os.curdir, "DAG_CUT_DEMO"))
 
 
 class DBInteractModule:
-    def __init__(self, DB_ADDRESS="192.168.1.4", DB_PORT=27017):
+    def __init__(self, DB_ADDRESS="localhost", DB_PORT=27017):
         self.DB_ADDR = DB_ADDRESS
         self.DB_PORT = DB_PORT
         self.client = MongoClient(self.DB_ADDR, self.DB_PORT)
 
-    def addNodes(self, dbName, collectionName, nodeObject):
-        rawDataCollectoin = self.client[dbName][collectionName]
-        rawDataCollectoin.insert_one(nodeObject)
+    def addNode(self, dbName, collectionName, nodeObject):
+        nodeDataCollectoin = self.client[dbName][collectionName]
+        nodeDataCollectoin.insert_one(nodeObject)
+
+    def addNodes(self, dbName, collectionName, nodeObjects):
+        nodeDataCollection = self.client[dbName][collectionName]
+        nodeDataCollection.insert(nodeObjects)
 
     def addEdges(self, dbName, collectionName, edgeObject):
         edgeDataCollection = self.client[dbName][collectionName]
         edgeDataCollection.insert_one(edgeObject)
 
-ANALYSIS_FILE_PATH = os.path.abspath(os.path.join(os.curdir, "desktop_livetest"))
-IMAGE_SAVE_PATH = os.path.abspath(os.path.join(os.curdir, "DAG_CUT_DEMO"))
+    def addMany(self, dbName, collectionName, objects):
+        nodeDataCollection = self.client[dbName][collectionName]
+
+        if(collectionName in self.client[dbName].list_collection_names()):
+            nodeDataCollection.drop()
+        try:
+            nodeDataCollection.insert(objects)
+        except:
+            print("ERROR: DATA INSERT ERROR")
+
+    def findNode(self, dbName, collectionName, query):
+        nodeCollection = self.client[dbName][collectionName]
+        return nodeCollection.find_one(filter=query)
+
+    def findNodes(self, dbName, collectionName, query):
+        nodeCollection = self.client[dbName][collectionName]
+
 class DependencyTreeNode:
     def __init__(self, activityID, detail):
         self.activityID = activityID
@@ -48,13 +70,11 @@ class DependencyTreeNode:
         else:
             print("This guy has multiple parents")
 
-
-
-
 class DependencyAnalysis:
     def __init__(self, url, testNo):
         self.url = url
-        self.file_path = os.path.join(ANALYSIS_FILE_PATH, self.url, "run_0", "analysis", "{}_{}.json".format(testNo, url))
+        self.file_path = os.path.join(ANALYSIS_FILE_PATH,  "{}_{}.json".format(testNo, url))
+        # self.file_path = os.path.join(ANALYSIS_FILE_PATH, url)
         self.profiled_data = self.readJsonaAsDitc()
         self.critical_path = self.getCriticalPath()
         self.dependedElements = self.getDependedElements()
@@ -101,9 +121,10 @@ class DependencyAnalysis:
     def getDetailWithId(self, activityId):
         # get an activity about its detail based on the activity ID
         for item in self.profiled_data:
-            if "objs" in item:
+            if "objs" in item and item["id"] != "Deps":
                 for obj in item["objs"]:
                     if obj["activityId"] == activityId:
+                        # print(obj)
                         return obj
 
     def getDependencyTreeNodes(self):
@@ -178,9 +199,9 @@ class DependencyTree:
             # parent -> thisNode
             nodes.append(treeNode.activityID)
             for ancestor in treeNode.ancestors:
-                edges.append(tuple([ancestor[0] + "_" + ancestor[-1], treeNode.activityID[0] + "_" + treeNode.activityID[-1]]))
+                edges.append(tuple([ancestor, treeNode.activityID]))
             for child in treeNode.children:
-                edges.append(tuple([treeNode.activityID[0] + "_" + treeNode.activityID[-1], child[0] + "_" + child[-1]]))
+                edges.append(tuple([treeNode.activityID, child]))
         # sort the nodes base on task and task no
         # Network->Scripting->Loading
         networkingTask = []
@@ -207,7 +228,7 @@ class DependencyTree:
         for index in range(len(scriptingTask)):
             nodes.append("Scripting" + "_" + str(scriptingTask[index]))
 
-        return [node[0]+"_"+node[-1] for node in nodes], edges
+        return nodes, edges
 
     def showTheTree(self):
         for treeNode in self.dependencyTreeNodes:
@@ -242,9 +263,14 @@ class DependencyTree:
                     if overallTimeConsumption >= threshold:
                         break
                     else:
+                        print(child)
                         overallTimeConsumption += timeConsumption
                         cut.append(child)
-                        allTreeNodeNames.remove(child)
+                        print(allTreeNodeNames)
+                        try:
+                            allTreeNodeNames.remove(child)
+                        except:
+                            continue
         print("Overall Time Consumption:", overallTimeConsumption)
         print("DAG Cut:", cut)
         print("TASK NUMBER: ", len(cut))
@@ -257,8 +283,10 @@ class DependencyTree:
         nr_vertices = len(self.dependencyTreeNodes)  # how many nodes are there
         dependencyTree = self.dependencyTreeNodes
         DAGCut = self.getOverallTimeConsumption(threshold)
-        DAGCut = [node[0] + "_" + node[-1] for node in DAGCut]
+        DAGCut = [node[0] + "_" + node[node.index("_") +1 : ] for node in DAGCut]
         nodes_ori, edges = self.prepareDrawingTree()
+        edges = [tuple([edge[0][0] + "_" + edge[0][edge[0].index("_") + 1 :], edge[1][0] + "_" + edge[1][edge[1].index("_") + 1 :]])for edge in edges]
+        nodes_ori = [node[0] + "_" + node[node.index("_") + 1 :] for node in nodes_ori]
         print(len(nodes_ori))
         nodes = [node for node in nodes_ori if node not in DAGCut]
 
@@ -293,15 +321,15 @@ class DependencyTree:
         G.add_edges_from(edges)
 
         # modify gaps between nodes
-        df = pd.DataFrame(index=G.nodes(), columns=G.nodes())
-        for row, data in nx.shortest_path_length(G):
-            for col, dist in data.items():
-                df.loc[row, col] = dist
+        # df = pd.DataFrame(index=G.nodes(), columns=G.nodes())
+        # for row, data in nx.shortest_path_length(G):
+        #     for col, dist in data.items():
+        #         df.loc[row, col] = dist
+#
+        # df = df.fillna(df.max().max() * 0.6)
 
-        df = df.fillna(df.max().max() * 0.6)
-
-        # pos = nx.kamada_kawai_layout(G, dist=df.to_dict())
-        pos = {'L_1':[0.45323407, 0.38300876], 'S_8': [-0.1200502 ,  0.89004281], 'N_1': [ 0.92090981, -0.06400148], 'N_2':[0.71877908, 0.5896263 ], 'S_6': [-0.47512574,  0.07605371], 'N_3':[0.35466946, 0.78284009], 'N_5':[-0.85383971,  0.12130521], 'N_7':[-0.46770779,  0.76354273], 'S_7':[-0.75269343,  0.48778184], 'L_2':[ 0.41769869, -0.15407188], 'S_4':[-0.54087218, -0.51841815], 'S_0':[0.10216507, 0.38916522], 'S_2':[-0.21226628, -0.47335229], 'L_3':[ 0.14853618, -0.59285619], 'N_4': [-0.05602928, -1], 'S_3':[-0.65497334, -0.24656378], 'N_6':[-0.38828246,  0.44194564], 'N_0': [0.00702252, -0.17041745], 'S_5': [ 0.44685786, -0.6439212], 'L_4': [-0.29849128, -0.79035], 'S_1': [ 0.62130693, -0.39901267], 'L_0': [0.62915201, 0.1276528 ]}
+        pos = nx.kamada_kawai_layout(G)
+        # pos = {'L_1':[0.45323407, 0.38300876], 'S_8': [-0.1200502 ,  0.89004281], 'N_1': [ 0.92090981, -0.06400148], 'N_2':[0.71877908, 0.5896263 ], 'S_6': [-0.47512574,  0.07605371], 'N_3':[0.35466946, 0.78284009], 'N_5':[-0.85383971,  0.12130521], 'N_7':[-0.46770779,  0.76354273], 'S_7':[-0.75269343,  0.48778184], 'L_2':[ 0.41769869, -0.15407188], 'S_4':[-0.54087218, -0.51841815], 'S_0':[0.10216507, 0.38916522], 'S_2':[-0.21226628, -0.47335229], 'L_3':[ 0.14853618, -0.59285619], 'N_4': [-0.05602928, -1], 'S_3':[-0.65497334, -0.24656378], 'N_6':[-0.38828246,  0.44194564], 'N_0': [0.00702252, -0.17041745], 'S_5': [ 0.44685786, -0.6439212], 'L_4': [-0.29849128, -0.79035], 'S_1': [ 0.62130693, -0.39901267], 'L_0': [0.62915201, 0.1276528 ]}
 
         print(pos)
         nx.draw_networkx_nodes(G, pos, cmap=plt.get_cmap('jet'),
@@ -467,22 +495,162 @@ class DependencyTree:
         # fig['layout'].update(annotations=annotations)
         # py.iplot(fig, filename='Tree-Reingold-Tilf')
 
+def sortDependencyOut(url, testNo, threshold, drawTree=False):
+    """
+    sort the dependency tree out,
+    :param url: webpage to analyze
+    :param testNo: Number of test conducted
+    :param thresholds: loading time threshold, for DAG cut.
+    :return: true if the data is saved successfully, false the otherwise
+    """
+    AnalysisNode = DependencyAnalysis(url=url, testNo=testNo)
+    DBInteract = DBInteractModule()
 
-GoogleAnalysis = DependencyAnalysis(url="www.google.com", testNo="0")
+    NODE_DB_NAME = "YPTN-DEPENDENCY-Nodes"
+    EDGE_DB_NAME = "YPTN-DEPENDENCY-Edges"
+    CRITICAL_PATH_DB_NAME = "YPTN-CRITICALPATH-Nodes"
+    CUT_DB_NAME = "YPTN-DAGCUT"
+
+    # Get critical path nodes and dependency nodes for later use
+    criticalPathList = AnalysisNode.getCriticalPathList()
+    dependencyTreeNodes = AnalysisNode.getDependencyTreeNodes()
+
+    WebpageDependencyTree = DependencyTree(dependencyTreeNodes, criticalPathList)
+    # trim the tree to get rid of loops
+    WebpageDependencyTree.trimTree()
+    # get all the nodes and edges
+    nodes, edges = WebpageDependencyTree.prepareDrawingTree()
+    # get the DAG cut
+    DAGCut = WebpageDependencyTree.getOverallTimeConsumption(threshold=threshold)
+
+    # save the nodes with details
+    nodeObjects = []
+    for nodeId in nodes:
+        # print(nodeId)
+        nodeDetail = AnalysisNode.getDetailWithId(nodeId)
+        # print(nodeDetail)
+        nodeObjects.append(nodeDetail)
+    DBInteract.addMany(dbName=NODE_DB_NAME, collectionName=url, objects=nodeObjects)
+
+    # save the edges with details
+    edgeObjects =[]
+    for edge in edges:
+        parent = edge[0]
+        child = edge[1]
+        print(parent, child)
+        parentDetail = AnalysisNode.getDetailWithId(parent)
+        childDetail = AnalysisNode.getDetailWithId(child)
+        print(parentDetail)
+        print(childDetail)
+        edgeObject = {
+            "parentId": parent,
+            "childId": child,
+            "parentDetail": parentDetail,
+            "childDetail": childDetail
+        }
+        edgeObjects.append(edgeObject)
+    DBInteract.addMany(dbName=EDGE_DB_NAME, collectionName=url, objects=edgeObjects)
+
+    # save the critical path nodes with detail
+    criticalPathObjects = []
+    for criticalPathNode in criticalPathList:
+        criticalPathNodeDetail = AnalysisNode.getDetailWithId(criticalPathNode)
+        criticalPathObjects.append(criticalPathNodeDetail)
+    DBInteract.addMany(dbName=CRITICAL_PATH_DB_NAME, collectionName=url, objects=criticalPathObjects)
+
+    # save the DAG cut nodes with detail
+    DAGCutObjects = []
+    for DAGCutNode in DAGCut:
+        DAGCutNodeDetail = AnalysisNode.getDetailWithId(DAGCutNode)
+        DAGCutObjects.append(DAGCutNodeDetail)
+
+    DBInteract.addMany(dbName=CUT_DB_NAME, collectionName=url, objects=DAGCutObjects)
+
+    # draw the graph?
+    if(drawTree):
+        WebpageDependencyTree.drawDependencyTree(currentSite=url, threshold=threshold)
+
+def sigmoid(x):
+  return 1 / (1 + math.exp(-x))
+
+def analyzeProfile(url, csvFileTitle):
+    profile = DependencyAnalysis(url=url, testNo=0).profiled_data
+    defaultWeight = {
+        'text/css':256,
+        'image':128,
+        'application/javascript':64,
+        'text/javascript':64,
+        'others':32
+    }
+    analysisRes = []
+    for record in profile:
+        if('id' in record):
+            try:
+                objs = record['objs']
+                for obj in objs:
+                    oneRes = []
+                    try:
+                        if(obj['activityId'].startswith('Networking')):
+                            fileType = obj['mimeType']
+                            timeCost = float(obj['endTime']) - float(obj['startTime'])
+                            # print("Networking Type", fileType)
+                            # print("Time Cost", str(timeCost))
+                            if(obj['mimeType'].startswith('image')):
+                                priority = round(defaultWeight['image'] / math.pow(timeCost, 1/3))
+                                if(priority > defaultWeight['image']):
+                                    priority = defaultWeight['image']
+                            else:
+                                try:
+                                    priority = round(defaultWeight[fileType] / math.pow(timeCost, 1/3))
+                                    if(priority > defaultWeight[fileType]):
+                                        priority = defaultWeight[fileType]
+                                except(KeyError):
+                                    priority = round(defaultWeight['others'] / math.pow(timeCost, 1/3))
+                                    if(priority > defaultWeight['others']):
+                                        priority = defaultWeight['others']
+
+                            # print("Priority:", str(round(priority)))
+                            oneRes.append(fileType)
+                            oneRes.append(timeCost)
+                            oneRes.append(priority)
+                            # print(oneRes)
+                            analysisRes.append(oneRes)
+                    except(KeyError):
+                        # print(obj)
+                        print("{:%Y-%m-%d %H:%M:%S} ignore dependency analysis".format(datetime.datetime.now()))
+            except(KeyError):
+                # print(record)
+                print("{:%Y-%m-%d %H:%M:%S} ignore TCP connection analysis".format(datetime.datetime.now()))
+            # print(analysisRes)
+            with open(csvFileTitle, 'w') as csvFile:
+                writer = csv.writer(csvFile)
+                writer.writerow(['FileType', 'TimeCost', 'Priority'])
+                writer.writerows(analysisRes)
 
 if __name__ == "__main__":
-    # GoogleAnalysis.showFilePath()
-    # print(GoogleAnalysis.getCriticalPath())
-    # GoogleAnalysis.getDependedElements()
-    # print(GoogleAnalysis.getDependencyTree())
-    # GoogleAnalysis.drawDependencyTree()
-    # dependencyTree = GoogleAnalysis.getDependencyTree()
-    # print(dependencyTree)
-    dependencyTreeNodes = GoogleAnalysis.getDependencyTreeNodes()
-    criticalPathNodes = GoogleAnalysis.getCriticalPathList()
-    dependencyTree = DependencyTree(dependencyTreeNodes, criticalPathNodes)
-    dependencyTree.trimTree()
-    dependencyTree.showTheTree()
-    thresholds = [0,50,100,150,200,250,300,350,400,450,500]
-    for threshold in thresholds:
-        dependencyTree.drawDependencyTree(currentSite="Google", threshold=threshold)
+    # GoogleAnalysis = DependencyAnalysis(url="www.google.com", testNo="0")
+    # # GoogleAnalysis.showFilePath()
+    # # print(GoogleAnalysis.getCriticalPath())
+    # # GoogleAnalysis.getDependedElements()
+    # # print(GoogleAnalysis.getDependencyTree())
+    # # GoogleAnalysis.drawDependencyTree()
+    # # dependencyTree = GoogleAnalysis.getDependencyTree()
+    # # print(dependencyTree)
+    # dependencyTreeNodes = GoogleAnalysis.getDependencyTreeNodes()
+    # criticalPathNodes = GoogleAnalysis.getCriticalPathList()
+    # dependencyTree = DependencyTree(dependencyTreeNodes, criticalPathNodes)
+    # dependencyTree.trimTree()
+    # dependencyTree.showTheTree()
+    # thresholds = [0,50,100,150,200,250,300,350,400,450,500]
+    # for threshold in thresholds:
+    #     dependencyTree.drawDependencyTree(currentSite="Google", threshold=threshold)
+
+    # sortDependencyOut(url="www.github.com", testNo="0", threshold=1000, drawTree=True)
+    profileNames = os.listdir(os.path.join(ANALYSIS_FILE_PATH))
+    # print(profileNames)
+    priorityType = "priorityRoot3"
+    for profile in profileNames:
+        url = profile.split('.json')[0].split('_')[1]
+        analyzeProfile(url=url,
+                       csvFileTitle=os.path.join(PRIORITY_ANALYSIS_FILE_PATH,
+                                                 "{}_{}_{}.csv".format(url, priorityType, str(round(time.time())))))

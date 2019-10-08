@@ -1364,158 +1364,15 @@ class Trace():
         for obj in self.all:
             _nodeId = obj[0]
             _nodeData = obj[1]
+            try:
             ###
             #  Add find_url like scheme for netwoorks which are null
             ###
-            if _nodeId.startswith('Networking') or _nodeId.startswith('Loading') or _nodeId.startswith('Scripting'):
-                if _nodeId.startswith('Networking'):
-                    if _nodeData['fromScript'] in ['Null', None, ''] and _nodeData['startTime'] > \
-                            self.G.node[_parse0Id][
-                                'startTime']:
-                        _parseID = self.find_parse_id(_nodeData)
-                        if _parseID in ['', None]:
-                            _parseID = _parse0Id
-                        a2_startTime, a1_triggered = self.edge_start(self.G.node[_parseID]['endTime'],
-                                                                     self.G.node[_nodeId]['startTime'])
-                        self.G.add_edge(_parseID, _nodeId,
-                                        startTime=a2_startTime,
-                                        endTime=self.G.node[_nodeId]['startTime'])
-                        self.deps.append({'time': a1_triggered, 'a1': _parseID, 'a2': _nodeId})
-                        if a1_triggered == -1:
-                            a1_triggered = self.G.node[_parseID]['endTime']
-                        self.deps_parent.setdefault(_nodeId, []).append((_parseID, a1_triggered))
-                    elif _nodeData['fromScript'] not in ['Null', None, '']:
-
-                        if len(self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]]) <= 1:
-                            _script_nodeId = self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]][0]
-                        else:
-                            _script_nodeId = self.find_url(urldefrag(_nodeData['fromScript'])[0], _nodeData, 'script')
-                        # _script_nodeId = self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]]
-                        _script_nodeData = self.scripts_list[int(_script_nodeId.split('_')[1])][1]
-                        # There is a js before _nodeId
-                        if _script_nodeData['startTime'] < self.G.node[_nodeId]['startTime']:
-                            a2_startTime, a1_triggered = self.edge_start(self.G.node[_script_nodeId]['endTime'],
-                                                                         self.G.node[_nodeId]['startTime'])
-                            self.G.add_edge(_script_nodeId, _nodeId,
-                                            startTime=a2_startTime,
-                                            endTime=self.G.node[_nodeId]['startTime'])
-                            self.deps.append({'time': a1_triggered, 'a1': _script_nodeId, 'a2': _nodeId})
-                            if a1_triggered == -1:
-                                a1_triggered = self.G.node[_script_nodeId]['endTime']
-                            self.deps_parent.setdefault(_nodeId, []).append((_script_nodeId, a1_triggered))
-
-                elif _nodeId.startswith('Scripting'):
-                    # find related networking for each js eval.
-                    if len(self.networks_lookup_url[urldefrag(_nodeData['url'])[0]]) <= 1:
-                        _netowrk_nodeId = self.networks_lookup_url[urldefrag(_nodeData['url'])[0]][0]
-                    else:
-                        _netowrk_nodeId = self.find_url(urldefrag(_nodeData['url'])[0], _nodeData, 'network')
-                    _netowrk_nodeData = self.networks_list[int(_netowrk_nodeId.split('_')[1])][1]
-
-                    if _netowrk_nodeData['startTime'] < self.G.node[_nodeId]['startTime']:
-                        a2_startTime, a1_triggered = self.edge_start(self.G.node[_netowrk_nodeId]['endTime'],
-                                                                     self.G.node[_nodeId]['startTime'])
-                        self.G.add_edge(_netowrk_nodeId, _nodeId,
-                                        startTime=a2_startTime,
-                                        endTime=self.G.node[_nodeId]['startTime'])
-                        self.deps.append({'time': a1_triggered, 'a1': _netowrk_nodeId, 'a2': _nodeId})
-                        if a1_triggered == -1:
-                            a1_triggered = self.G.node[_netowrk_nodeId]['endTime']
-                        self.deps_parent.setdefault(_nodeId, []).append((_netowrk_nodeId, a1_triggered))
-
-                        ### Add css_eval to js_eval dep
-                        _cssEvalIds = self.find_blocking_css(_netowrk_nodeData['endTime'],self.G.node[_nodeId]['endTime'] )
-                        for _cssEvalId in _cssEvalIds:
-                            if _cssEvalId:
-                                a2_startTime, a1_triggered = self.edge_start(self.G.node[_cssEvalId]['endTime'],
-                                                                             self.G.node[_nodeId]['startTime'])
-                                self.G.add_edge(_cssEvalId, _nodeId,
-                                            startTime=a2_startTime,
-                                            endTime=self.G.node[_nodeId]['startTime'])
-                                self.deps.append({'time': a1_triggered, 'a1': _cssEvalId, 'a2': _nodeId})
-                                if a1_triggered == -1:
-                                    a1_triggered = self.G.node[_cssEvalId]['endTime']
-                                self.deps_parent.setdefault(_nodeId, []).append((_cssEvalId, a1_triggered))
-
-
-                elif _nodeId.startswith('Loading'):
-                    if _nodeData['name'] == 'ParseAuthorStyleSheet':
-                        try:
-                            if len(self.networks_lookup_url[urldefrag(_nodeData['styleSheetUrl'])[0]]) <= 1:
-                                _netowrk_nodeId = self.networks_lookup_url[urldefrag(_nodeData['styleSheetUrl'])[0]][0]
-                            else:
-                                _netowrk_nodeId = self.find_url(urldefrag(_nodeData['styleSheetUrl'])[0], _nodeData, 'network')
-                        except KeyError:
-                            if _nodeData['styleSheetUrl'].startswith('https'):
-                                _tmp = _nodeData['styleSheetUrl'].replace('https', 'http')
-                            elif _nodeData['styleSheetUrl'].startswith('http'):
-                                _tmp = _nodeData['styleSheetUrl'].replace('http', 'https')
-                            else:
-                                continue
-                            try:
-                                if len(self.networks_lookup_url[urldefrag(_tmp)[0]]) <= 1:
-                                    _netowrk_nodeId = self.networks_lookup_url[urldefrag(_tmp)[0]][0]
-                                else:
-                                    _netowrk_nodeId = self.find_url(urldefrag(_tmp)[0], _nodeData, 'network')
-                            except Exception as e:
-                                print('Exception in dependency()', e, _tmp, urldefrag(_tmp))
-                                continue
-                        except Exception as e:
-                            print(e)
-                            continue
-                        _netowrk_nodeData = self.networks_list[int(_netowrk_nodeId.split('_')[1])][1]
-                        if _netowrk_nodeData['startTime'] < self.G.node[_nodeId]['startTime']:
-                            a2_startTime, a1_triggered = self.edge_start(self.G.node[_netowrk_nodeId]['endTime'],
-                                                                         self.G.node[_nodeId]['startTime'])
-                            self.G.add_edge(_netowrk_nodeId, _nodeId,
-                                            startTime=a2_startTime,
-                                            endTime=self.G.node[_nodeId]['startTime'])
-                            self.deps.append({'time': a1_triggered, 'a1': _netowrk_nodeId, 'a2': _nodeId})
-                            if a1_triggered == -1:
-                                a1_triggered = self.G.node[_netowrk_nodeId]['endTime']
-                            self.deps_parent.setdefault(_nodeId, []).append((_netowrk_nodeId, a1_triggered))
-
-                    elif _nodeData['name'] == 'ParseHTML' and _nodeData['fromScript'] in ['Null', None, '']:
-                        ### TODO: Javad
-                        # We are currently skipping about:blanks which occur before parse_0
-                        # Update: no need if a clean start happens in testbed.
-                        ###
-                        if _nodeData['startTime'] > self.G.node[_parse0Id]['startTime'] and not _nodeData['url'] == '':
-                            try:
-                                if len(self.networks_lookup_url[urldefrag(_nodeData['url'])[0]]) <= 1:
-                                    _netowrk_nodeId = self.networks_lookup_url[urldefrag(_nodeData['url'])[0]][0]
-                                else:
-                                    _netowrk_nodeId = self.find_url(urldefrag(_nodeData['url'])[0], _nodeData, 'network')
-                            except Exception as e:
-                                continue
-                            _netowrk_nodeData = self.networks_list[int(_netowrk_nodeId.split('_')[1])][1]
-                            a2_startTime, a1_triggered = self.edge_start(self.G.node[_netowrk_nodeId]['endTime'],
-                                                                         self.G.node[_nodeId]['startTime'])
-                            self.G.add_edge(_netowrk_nodeId, _nodeId,
-                                            startTime=a2_startTime,
-                                            endTime=self.G.node[_nodeId]['startTime'])
-                            self.deps.append({'time': a1_triggered, 'a1': _netowrk_nodeId, 'a2': _nodeId})
-                            if a1_triggered == -1:
-                                a1_triggered = self.G.node[_netowrk_nodeId]['endTime']
-                            self.deps_parent.setdefault(_nodeId, []).append((_netowrk_nodeId, a1_triggered))
-                            ###
-                            # find latest scripting too
-                            ###
-                            _script_nodeId = self.find_scripting_id(_nodeData)
-                            if _script_nodeId is not None:
-                                a2_startTime, a1_triggered = self.edge_start(self.G.node[_script_nodeId]['endTime'],
-                                                                             self.G.node[_nodeId]['startTime'])
-                                self.G.add_edge(_script_nodeId, _nodeId,
-                                                startTime=a2_startTime,
-                                                endTime=self.G.node[_nodeId]['startTime'])
-                                self.deps.append({'time': a1_triggered, 'a1': _script_nodeId, 'a2': _nodeId})
-                                if a1_triggered == -1:
-                                    a1_triggered = self.G.node[_script_nodeId]['endTime']
-                                self.deps_parent.setdefault(_nodeId, []).append((_script_nodeId, a1_triggered))
-
-                            ###
-                            # Find latest parsHTML too
-                            ###
+                if _nodeId.startswith('Networking') or _nodeId.startswith('Loading') or _nodeId.startswith('Scripting'):
+                    if _nodeId.startswith('Networking'):
+                        if _nodeData['fromScript'] in ['Null', None, ''] and _nodeData['startTime'] > \
+                                self.G.node[_parse0Id][
+                                    'startTime']:
                             _parseID = self.find_parse_id(_nodeData)
                             if _parseID in ['', None]:
                                 _parseID = _parse0Id
@@ -1528,30 +1385,176 @@ class Trace():
                             if a1_triggered == -1:
                                 a1_triggered = self.G.node[_parseID]['endTime']
                             self.deps_parent.setdefault(_nodeId, []).append((_parseID, a1_triggered))
+                        elif _nodeData['fromScript'] not in ['Null', None, '']:
 
-                        else:
-                            pass
+                            if len(self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]]) <= 1:
+                                _script_nodeId = self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]][0]
+                            else:
+                                _script_nodeId = self.find_url(urldefrag(_nodeData['fromScript'])[0], _nodeData, 'script')
+                            # _script_nodeId = self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]]
+                            _script_nodeData = self.scripts_list[int(_script_nodeId.split('_')[1])][1]
+                            # There is a js before _nodeId
+                            if _script_nodeData['startTime'] < self.G.node[_nodeId]['startTime']:
+                                a2_startTime, a1_triggered = self.edge_start(self.G.node[_script_nodeId]['endTime'],
+                                                                             self.G.node[_nodeId]['startTime'])
+                                self.G.add_edge(_script_nodeId, _nodeId,
+                                                startTime=a2_startTime,
+                                                endTime=self.G.node[_nodeId]['startTime'])
+                                self.deps.append({'time': a1_triggered, 'a1': _script_nodeId, 'a2': _nodeId})
+                                if a1_triggered == -1:
+                                    a1_triggered = self.G.node[_script_nodeId]['endTime']
+                                self.deps_parent.setdefault(_nodeId, []).append((_script_nodeId, a1_triggered))
 
-                    elif _nodeData['name'] == 'ParseHTML' and _nodeData['fromScript'] not in ['Null', None, '']:
-                        # _script_nodeId = self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]]
-                        print(self.scripts_lookup_url)
-                        print(_nodeData['fromScript'])
-                        if _nodeData['fromScript'] is not 'Null' and len(self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]]) <= 1:
-                            _script_nodeId = self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]][0]
+                    elif _nodeId.startswith('Scripting'):
+                        # find related networking for each js eval.
+                        if len(self.networks_lookup_url[urldefrag(_nodeData['url'])[0]]) <= 1:
+                            _netowrk_nodeId = self.networks_lookup_url[urldefrag(_nodeData['url'])[0]][0]
                         else:
-                            _script_nodeId = self.find_url(urldefrag(_nodeData['fromScript'])[0], _nodeData, 'script')
-                        _script_nodeData = self.scripts_list[int(_script_nodeId.split('_')[1])][1]
-                        # There is a js before _nodeId
-                        if _script_nodeData['startTime'] < self.G.node[_nodeId]['startTime']:
-                            a2_startTime, a1_triggered = self.edge_start(self.G.node[_script_nodeId]['endTime'],
+                            _netowrk_nodeId = self.find_url(urldefrag(_nodeData['url'])[0], _nodeData, 'network')
+                        _netowrk_nodeData = self.networks_list[int(_netowrk_nodeId.split('_')[1])][1]
+
+                        if _netowrk_nodeData['startTime'] < self.G.node[_nodeId]['startTime']:
+                            a2_startTime, a1_triggered = self.edge_start(self.G.node[_netowrk_nodeId]['endTime'],
                                                                          self.G.node[_nodeId]['startTime'])
-                            self.G.add_edge(_script_nodeId, _nodeId,
+                            self.G.add_edge(_netowrk_nodeId, _nodeId,
                                             startTime=a2_startTime,
                                             endTime=self.G.node[_nodeId]['startTime'])
-                            self.deps.append({'time': a1_triggered, 'a1': _script_nodeId, 'a2': _nodeId})
+                            self.deps.append({'time': a1_triggered, 'a1': _netowrk_nodeId, 'a2': _nodeId})
                             if a1_triggered == -1:
-                                a1_triggered = self.G.node[_script_nodeId]['endTime']
-                            self.deps_parent.setdefault(_nodeId, []).append((_script_nodeId, a1_triggered))
+                                a1_triggered = self.G.node[_netowrk_nodeId]['endTime']
+                            self.deps_parent.setdefault(_nodeId, []).append((_netowrk_nodeId, a1_triggered))
+
+                            ### Add css_eval to js_eval dep
+                            _cssEvalIds = self.find_blocking_css(_netowrk_nodeData['endTime'],self.G.node[_nodeId]['endTime'] )
+                            for _cssEvalId in _cssEvalIds:
+                                if _cssEvalId:
+                                    a2_startTime, a1_triggered = self.edge_start(self.G.node[_cssEvalId]['endTime'],
+                                                                                 self.G.node[_nodeId]['startTime'])
+                                    self.G.add_edge(_cssEvalId, _nodeId,
+                                                startTime=a2_startTime,
+                                                endTime=self.G.node[_nodeId]['startTime'])
+                                    self.deps.append({'time': a1_triggered, 'a1': _cssEvalId, 'a2': _nodeId})
+                                    if a1_triggered == -1:
+                                        a1_triggered = self.G.node[_cssEvalId]['endTime']
+                                    self.deps_parent.setdefault(_nodeId, []).append((_cssEvalId, a1_triggered))
+
+
+                    elif _nodeId.startswith('Loading'):
+                        if _nodeData['name'] == 'ParseAuthorStyleSheet':
+                            try:
+                                if len(self.networks_lookup_url[urldefrag(_nodeData['styleSheetUrl'])[0]]) <= 1:
+                                    _netowrk_nodeId = self.networks_lookup_url[urldefrag(_nodeData['styleSheetUrl'])[0]][0]
+                                else:
+                                    _netowrk_nodeId = self.find_url(urldefrag(_nodeData['styleSheetUrl'])[0], _nodeData, 'network')
+                            except KeyError:
+                                if _nodeData['styleSheetUrl'].startswith('https'):
+                                    _tmp = _nodeData['styleSheetUrl'].replace('https', 'http')
+                                elif _nodeData['styleSheetUrl'].startswith('http'):
+                                    _tmp = _nodeData['styleSheetUrl'].replace('http', 'https')
+                                else:
+                                    continue
+                                try:
+                                    if len(self.networks_lookup_url[urldefrag(_tmp)[0]]) <= 1:
+                                        _netowrk_nodeId = self.networks_lookup_url[urldefrag(_tmp)[0]][0]
+                                    else:
+                                        _netowrk_nodeId = self.find_url(urldefrag(_tmp)[0], _nodeData, 'network')
+                                except Exception as e:
+                                    print('Exception in dependency()', e, _tmp, urldefrag(_tmp))
+                                    continue
+                            except Exception as e:
+                                print(e)
+                                continue
+                            _netowrk_nodeData = self.networks_list[int(_netowrk_nodeId.split('_')[1])][1]
+                            if _netowrk_nodeData['startTime'] < self.G.node[_nodeId]['startTime']:
+                                a2_startTime, a1_triggered = self.edge_start(self.G.node[_netowrk_nodeId]['endTime'],
+                                                                             self.G.node[_nodeId]['startTime'])
+                                self.G.add_edge(_netowrk_nodeId, _nodeId,
+                                                startTime=a2_startTime,
+                                                endTime=self.G.node[_nodeId]['startTime'])
+                                self.deps.append({'time': a1_triggered, 'a1': _netowrk_nodeId, 'a2': _nodeId})
+                                if a1_triggered == -1:
+                                    a1_triggered = self.G.node[_netowrk_nodeId]['endTime']
+                                self.deps_parent.setdefault(_nodeId, []).append((_netowrk_nodeId, a1_triggered))
+
+                        elif _nodeData['name'] == 'ParseHTML' and _nodeData['fromScript'] in ['Null', None, '']:
+                            ### TODO: Javad
+                            # We are currently skipping about:blanks which occur before parse_0
+                            # Update: no need if a clean start happens in testbed.
+                            ###
+                            if _nodeData['startTime'] > self.G.node[_parse0Id]['startTime'] and not _nodeData['url'] == '':
+                                try:
+                                    if len(self.networks_lookup_url[urldefrag(_nodeData['url'])[0]]) <= 1:
+                                        _netowrk_nodeId = self.networks_lookup_url[urldefrag(_nodeData['url'])[0]][0]
+                                    else:
+                                        _netowrk_nodeId = self.find_url(urldefrag(_nodeData['url'])[0], _nodeData, 'network')
+                                except Exception as e:
+                                    continue
+                                _netowrk_nodeData = self.networks_list[int(_netowrk_nodeId.split('_')[1])][1]
+                                a2_startTime, a1_triggered = self.edge_start(self.G.node[_netowrk_nodeId]['endTime'],
+                                                                             self.G.node[_nodeId]['startTime'])
+                                self.G.add_edge(_netowrk_nodeId, _nodeId,
+                                                startTime=a2_startTime,
+                                                endTime=self.G.node[_nodeId]['startTime'])
+                                self.deps.append({'time': a1_triggered, 'a1': _netowrk_nodeId, 'a2': _nodeId})
+                                if a1_triggered == -1:
+                                    a1_triggered = self.G.node[_netowrk_nodeId]['endTime']
+                                self.deps_parent.setdefault(_nodeId, []).append((_netowrk_nodeId, a1_triggered))
+                                ###
+                                # find latest scripting too
+                                ###
+                                _script_nodeId = self.find_scripting_id(_nodeData)
+                                if _script_nodeId is not None:
+                                    a2_startTime, a1_triggered = self.edge_start(self.G.node[_script_nodeId]['endTime'],
+                                                                                 self.G.node[_nodeId]['startTime'])
+                                    self.G.add_edge(_script_nodeId, _nodeId,
+                                                    startTime=a2_startTime,
+                                                    endTime=self.G.node[_nodeId]['startTime'])
+                                    self.deps.append({'time': a1_triggered, 'a1': _script_nodeId, 'a2': _nodeId})
+                                    if a1_triggered == -1:
+                                        a1_triggered = self.G.node[_script_nodeId]['endTime']
+                                    self.deps_parent.setdefault(_nodeId, []).append((_script_nodeId, a1_triggered))
+
+                                ###
+                                # Find latest parsHTML too
+                                ###
+                                _parseID = self.find_parse_id(_nodeData)
+                                if _parseID in ['', None]:
+                                    _parseID = _parse0Id
+                                a2_startTime, a1_triggered = self.edge_start(self.G.node[_parseID]['endTime'],
+                                                                             self.G.node[_nodeId]['startTime'])
+                                self.G.add_edge(_parseID, _nodeId,
+                                                startTime=a2_startTime,
+                                                endTime=self.G.node[_nodeId]['startTime'])
+                                self.deps.append({'time': a1_triggered, 'a1': _parseID, 'a2': _nodeId})
+                                if a1_triggered == -1:
+                                    a1_triggered = self.G.node[_parseID]['endTime']
+                                self.deps_parent.setdefault(_nodeId, []).append((_parseID, a1_triggered))
+
+                            else:
+                                pass
+
+                        elif _nodeData['name'] == 'ParseHTML' and _nodeData['fromScript'] not in ['Null', None, '']:
+                            # _script_nodeId = self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]]
+                            print(self.scripts_lookup_url)
+                            print(_nodeData['fromScript'])
+                            if _nodeData['fromScript'] is not 'Null' and len(self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]]) <= 1:
+                                _script_nodeId = self.scripts_lookup_url[urldefrag(_nodeData['fromScript'])[0]][0]
+                            else:
+                                _script_nodeId = self.find_url(urldefrag(_nodeData['fromScript'])[0], _nodeData, 'script')
+                            _script_nodeData = self.scripts_list[int(_script_nodeId.split('_')[1])][1]
+                            # There is a js before _nodeId
+                            if _script_nodeData['startTime'] < self.G.node[_nodeId]['startTime']:
+                                a2_startTime, a1_triggered = self.edge_start(self.G.node[_script_nodeId]['endTime'],
+                                                                             self.G.node[_nodeId]['startTime'])
+                                self.G.add_edge(_script_nodeId, _nodeId,
+                                                startTime=a2_startTime,
+                                                endTime=self.G.node[_nodeId]['startTime'])
+                                self.deps.append({'time': a1_triggered, 'a1': _script_nodeId, 'a2': _nodeId})
+                                if a1_triggered == -1:
+                                    a1_triggered = self.G.node[_script_nodeId]['endTime']
+                                self.deps_parent.setdefault(_nodeId, []).append((_script_nodeId, a1_triggered))
+            except:
+                continue
         self.deps_modified = copy.deepcopy(self.deps)
         return True
         # print(self.G.nodes(data=True))
