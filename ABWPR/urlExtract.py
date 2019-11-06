@@ -45,7 +45,7 @@ class WebpageExtract(DBInteract):
 
             urlInfo = dict()
             urlInfo['scheme'] = urlParseResult.scheme
-            urlInfo['netloc'] = urlParseResult.netloc
+            urlInfo['netloc'] = urlParseResult.netlocloa
             urlInfo['path'] = urlParseResult.path
             urlInfo['param'] = urlParseResult.params
             urlInfo['query'] = urlParseResult.query
