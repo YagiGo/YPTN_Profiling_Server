@@ -14,6 +14,7 @@ class DBInteract(object):
         self.USER_HISTORY_COLLECTION = 'access-sites'
         self.ACCESS_COUNT_COLLECTION = 'access-counts'
         self.ACCESS_COUNT_BY_DOMAIN_COLLETCION = 'access-counts-domain'
+        self.SERVER_PUSH_DB = 'Server-Push-Info'
         self.RUC_VALUE_DB = 'RUC-value'
         self.TEMP_STORAGE_DB = 'TEMP-storage'
         self.RUC_DB = 'RUC'
